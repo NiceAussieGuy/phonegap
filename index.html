@@ -98,7 +98,7 @@
 		function onDeviceReady() {
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			setTimeout(function () {
-					alert("hiding splash on device ready");
+					//alert("hiding splash on device ready");
 					navigator.splashscreen.hide();
 				}, 2000);            
 		}
@@ -143,14 +143,14 @@
 	<script type="text/javascript">
 		var uData;
 		$(document).ready(function () {
-			alert("before hide");
+			/*alert("before hide");
 			navigator.splashscreen.hide();
 			alert("after hide");
 			setTimeout(function () {
 				alert("hiding splash in else timeout");
 				navigator.splashscreen.hide();
 			}, 2000);
-			alert("after timeout");
+			alert("after timeout");*/
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
