@@ -108,9 +108,10 @@
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			showAlert("mmmmmm","tttttt");
 			setTimeout(function () {
-					//alert("hiding splash on device ready");
+				//alert("hiding splash on device ready");
 				navigator.splashscreen.hide();
-			}, 2000);            
+			}, 2000);
+			loadData();
 		}
 		
 		function onBackKeyDown() {
@@ -123,6 +124,7 @@
 	<script type="text/javascript">
 
 		var $ = jQuery.noConflict();
+		
 		$(function () {
 			$('.form').find('input, select, textarea').on('touchstart mousedown click', function (e) {
 				e.stopPropagation();
@@ -152,7 +154,7 @@
 
 	<script type="text/javascript">
 		var uData;
-		$(document).ready(function () {
+		function loadData() {
 			
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
@@ -171,16 +173,16 @@
 				$("#current").text(uData.current);
 				$("#productionPhone").text(uData.productionPhone);
 				$("#productionName").text(uData.productionName);
-				alert("in if end " );
+				//alert("in if end " );
 				
 			} else {
-				alert("in else " + uData);
+				//alert("in else " + uData);
 				  
-				//window.location.href = 'login.html';
-				alert("after else");
+				window.location.href = 'login.html';
+				//alert("after else");
 			}
 		
-		});
+		}
 	</script>
 
 	<script type="text/javascript">
