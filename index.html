@@ -100,7 +100,7 @@
 		        alert(title ? (title + ": " + message) : message);
 		    }
 		}
-		navigator.notification.alert("test message", null, "test title", 'OK');
+		showAlert("mmmmmm","tttttt");
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
@@ -154,12 +154,12 @@
 		$(document).ready(function () {
 			
 			try{
-				navigator.splashscreen.hide();
+				
 				setTimeout(function () {
-					alert("hiding splash in else timeout");
 					navigator.splashscreen.hide();
 				}, 2000);
 			} catch(e){
+				navigator.splashscreen.hide();
 				alert("error: " + e);
 			}
 			
