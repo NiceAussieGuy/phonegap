@@ -62,6 +62,9 @@
   <feature name="SplashScreen">
     <param name="ios-package" value="CDVSplashScreen" />
   </feature>
+  <feature name="Notification">
+    <param name="ios-package" value="CDVNotification" />
+  </feature>
 
   <!-- Core plugins 
 <feature name="Geolocation">
