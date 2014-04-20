@@ -721,6 +721,14 @@
                                         <img src="colors/wedding/images/logo.png" alt="" title="" border="0" style="height: 40px;float: right;" />
                                     </h2>
                                     <script type="text/javascript">
+                                    		function showAlert(message, title) {
+												if (navigator.notification) {
+													navigator.notification.alert(message, null, title, 'OK');
+												} else {
+													alert(title ? (title + ": " + message) : message);
+												}
+											}
+											
                                         function sendMail() {
                                             if ($("#contactName").val() == ""
                                                 || $("#contactEmail").val() == ""
@@ -728,7 +736,7 @@
                                                 || $("#contactSubject").val() == ""
                                                 || $("#contactMessage").val() == "")
                                             {
-                                                alert("Please fill all fields");
+                                                showAlert("Please fill all fields");
                                                 return;
                                             }
                                             var link = "mailto:asa@asafilmcrew.com"                                                    
@@ -1230,7 +1238,7 @@
             //------------------------
 
 	        if($("#booking-form").valid()==false){
-	            alert("You have not filled the form correctly. Please correct then retry");
+	            showAlert("You have not filled the form correctly. Please correct then retry");
 	            ajaxInProgress = false;
 				return false;
 			}
@@ -1249,7 +1257,7 @@
 	            data: $("#booking-form").serialize(),
 	            success: function (data, status)
 	            {	                
-	                alert(data.response);
+	                showAlert(data.response);
 	                document.getElementById("booking-form").reset();
 	                swiperParent.swipeTo(0);
 	                //-----------------
@@ -1257,7 +1265,7 @@
 	            },
 	            error: function (data, textStatus, errorThrown)
 	            {                    
-	                alert("Connection Error");
+	                showAlert("Connection Error");
 
 	                //-----------------
 	                ajaxInProgress = false;
