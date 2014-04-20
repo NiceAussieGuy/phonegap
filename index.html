@@ -98,6 +98,7 @@
         function onDeviceReady() {
             document.addEventListener("backbutton", onBackKeyDown, false);
             setTimeout(function () {
+            	alert("hiding splash on device ready");
                 navigator.splashscreen.hide();
             }, 2000);            
         }
@@ -145,9 +146,11 @@
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
+				alert("hiding splash on read local storage user data"+ uData);
 				navigator.splashscreen.hide();
 			} catch (e) {
 				uData = null;
+				alert("hiding splash on uData exception");
 				navigator.splashscreen.hide();
 			}
 
@@ -161,10 +164,12 @@
 				$("#current").text(uData.current);
 				$("#productionPhone").text(uData.productionPhone);
 				$("#productionName").text(uData.productionName);
-		        	navigator.splashscreen.hide();
+				alert("hiding splash after uData read");
+				navigator.splashscreen.hide();
 			} else {
 				window.location.href = 'login.html';
-		        	navigator.splashscreen.hide();
+				alert("hiding splash after redirect to login");
+				navigator.splashscreen.hide();
 			}
 		
 		});
