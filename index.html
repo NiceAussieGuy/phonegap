@@ -143,11 +143,14 @@
 	<script type="text/javascript">
 		var uData;
 		$(document).ready(function () {
+			alert("before hide");
 			navigator.splashscreen.hide();
+			alert("after hide");
 			setTimeout(function () {
 				alert("hiding splash in else timeout");
 				navigator.splashscreen.hide();
 			}, 2000);
+			alert("after timeout");
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
