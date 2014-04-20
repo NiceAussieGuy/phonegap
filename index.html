@@ -100,7 +100,7 @@
 		        alert(title ? (title + ": " + message) : message);
 		    }
 		}
-		showAlert("test alert");
+		navigator.notification.alert("test message", null, "test title", 'OK');
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
