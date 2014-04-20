@@ -145,8 +145,10 @@
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
+				navigator.splashscreen.hide();
 			} catch (e) {
 				uData = null;
+				navigator.splashscreen.hide();
 			}
 
 			if ((uData != undefined || uData != null) && uData.rememberMe) {
@@ -159,10 +161,10 @@
 				$("#current").text(uData.current);
 				$("#productionPhone").text(uData.productionPhone);
 				$("#productionName").text(uData.productionName);
-		        navigator.splashscreen.hide();
+		        	navigator.splashscreen.hide();
 			} else {
 				window.location.href = 'login.html';
-		        navigator.splashscreen.hide();
+		        	navigator.splashscreen.hide();
 			}
 		
 		});
