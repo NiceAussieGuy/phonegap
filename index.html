@@ -143,6 +143,11 @@
 	<script type="text/javascript">
 		var uData;
 		$(document).ready(function () {
+			navigator.splashscreen.hide();
+			setTimeout(function () {
+				alert("hiding splash in else timeout");
+				navigator.splashscreen.hide();
+			}, 2000);
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
@@ -164,11 +169,7 @@
 				
 			} else {
 				alert("in else " + uData);
-				navigator.splashscreen.hide();
-				setTimeout(function () {
-					alert("hiding splash in else timeout");
-					navigator.splashscreen.hide();
-				}, 2000);  
+				  
 				window.location.href = 'login.html';
 				alert("hiding splash after redirect to login");
 				
