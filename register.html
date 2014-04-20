@@ -91,6 +91,13 @@
 			navigator.app.exitApp(); 
 		}
 		
+		function showAlert(message, title) {
+			if (navigator.notification) {
+				navigator.notification.alert(message, null, title, 'OK');
+			} else {
+				alert(title ? (title + ": " + message) : message);
+			}
+		}
 	 
 	    </script>
         
@@ -181,7 +188,7 @@
                 //------------------------
 
                 if($("#register").valid()==false){
-                    alert("You have not filled the form correctly. Please correct then retry");
+                    showAlert("You have not filled the form correctly. Please correct then retry","Error");
                     ajaxInProgress = false;
                     return;
                 }
@@ -216,14 +223,14 @@
                     
                         if("Thanks for registering. You may now proceed."==data.response)
                         {
-                            alert(data.response);
+                            showAlert(data.response);
                             //-----------------
                             ajaxInProgress = false;
                             //-----------------
                             window.location.href = 'login.html';
                         } 
                         else {                    
-                            alert(data.response);
+                            showAlert(data.response);
                             //-----------------
                             ajaxInProgress = false;
                             //-----------------
@@ -231,7 +238,7 @@
                     },
                     error: function (data, textStatus, errorThrown) {
                     
-                        alert("Connection Error");
+                        showAlert("Connection Error");
                         //-----------------
                         ajaxInProgress = false;
                         //-----------------
