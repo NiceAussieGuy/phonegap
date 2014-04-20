@@ -100,16 +100,17 @@
 		        alert(title ? (title + ": " + message) : message);
 		    }
 		}
-		showAlert("mmmmmm","tttttt");
+		
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
 		function onDeviceReady() {
 			document.addEventListener("backbutton", onBackKeyDown, false);
+			showAlert("mmmmmm","tttttt");
 			setTimeout(function () {
 					//alert("hiding splash on device ready");
-					navigator.splashscreen.hide();
-				}, 2000);            
+				navigator.splashscreen.hide();
+			}, 2000);            
 		}
 		
 		function onBackKeyDown() {
@@ -152,19 +153,7 @@
 	<script type="text/javascript">
 		var uData;
 		$(document).ready(function () {
-			navigator.splashscreen.hide();
 			
-			try{
-				navigator.splashscreen.hide();
-				setTimeout(function () {
-					navigator.splashscreen.hide();
-				}, 2000);
-			} catch(e){
-				navigator.splashscreen.hide();
-				alert("error: " + e);
-			}
-			
-		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
 			} catch (e) {
@@ -182,13 +171,13 @@
 				$("#current").text(uData.current);
 				$("#productionPhone").text(uData.productionPhone);
 				$("#productionName").text(uData.productionName);
+				alert("in if end " );
 				
 			} else {
 				alert("in else " + uData);
 				  
 				window.location.href = 'login.html';
-				alert("hiding splash after redirect to login");
-				
+				alert("after else");
 			}
 		
 		});
