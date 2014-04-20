@@ -39,8 +39,11 @@
   <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
   <!-- Plugins -->
+  <feature name="SplashScreen">
+    <param name="ios-package" value="CDVSplashScreen" />
+</feature>
 
-  <!-- Core plugins -->
+  <!-- Core plugins 
 <feature name="Geolocation">
 <param name="ios-package" value="CDVLocation"/>
 </feature>
@@ -100,7 +103,7 @@
 </feature>
 
 <plugins></plugins>
-
+-->
   <!-- Third party plugins -->
   <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
   <!-- 
