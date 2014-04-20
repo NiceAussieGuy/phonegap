@@ -72,6 +72,14 @@
                 }
             });
         });
+        
+		function showAlert(message, title) {
+			if (navigator.notification) {
+				navigator.notification.alert(message, null, title, 'OK');
+			} else {
+				alert(title ? (title + ": " + message) : message);
+			}
+		}
     </script>
 
     <script type="text/javascript">
@@ -88,7 +96,7 @@
             //------------------------
 
             if ($("#forgot").valid() == false) {
-                alert("Please correct the email address");
+                showAlert("Please correct the email address","Error");
                 ajaxInProgress = false;
                 return;
             }
@@ -125,11 +133,6 @@
                     //-----------------
                 } 
             });   
-        }
-
-        function myfunction (data) {
-            //var output = $('#output');
-            alert("Someresult" + data+"<br/>");
         }
 
     </script>
