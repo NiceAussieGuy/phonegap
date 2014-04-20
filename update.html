@@ -80,6 +80,14 @@
         <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
         <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
         <script type="text/javascript">
+		function showAlert(message, title) {
+			if (navigator.notification) {
+				navigator.notification.alert(message, null, title, 'OK');
+			} else {
+				alert(title ? (title + ": " + message) : message);
+			}
+		}
+        
             var $ = jQuery.noConflict();
             $(function() {
                 $('.form').find('input, select, textarea').on('touchstart mousedown click', function(e) {
@@ -144,7 +152,7 @@
 
                 if (p1 != p2)
                 {
-                    alert("Error: You have not entered the password correctly");
+                    showAlert("Error: You have not entered the password correctly");
 
                     return;
                 }
@@ -203,7 +211,7 @@
                 //------------------------
 
                 if($("#register").valid()==false){
-                    alert("You have not filled the form correctly. Please correct then retry");
+                    showAlert("You have not filled the form correctly. Please correct then retry");
                     ajaxInProgress = false;
                     return;
                 }
@@ -253,14 +261,14 @@
                             
                             window.localStorage.setItem("userData", JSON.stringify(uData));
 
-                            alert(data.response);
+                            showAlert(data.response);
                             //-----------------
                             ajaxInProgress = false;
                             //-----------------
                             window.location.href = 'main.html';
                         } 
                         else {                    
-                            alert(data.response);
+                            showAlert(data.response);
                             //-----------------
                             ajaxInProgress = false;
                             //-----------------
@@ -268,7 +276,7 @@
                     },
                     error: function (data, textStatus, errorThrown) {
                     
-                        alert("Connection Error");
+                        showAlert("Connection Error");
                     } 
                 });   
             }
