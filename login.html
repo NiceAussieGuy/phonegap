@@ -67,6 +67,14 @@
     <script type="text/javascript" src="js/jquery.validate.additional-methods.min.js"></script>
 
     <script type="text/javascript">
+    	function showAlert(message, title) {
+			if (navigator.notification) {
+				navigator.notification.alert(message, null, title, 'OK');
+			} else {
+				alert(title ? (title + ": " + message) : message);
+			}
+		}
+    
         var uData;
         $(document).ready(function () {
             try {
@@ -117,13 +125,13 @@
 
                         window.location.href = 'index.html';
                     } else {
-                        alert("Invalid Info!!");
+                        showAlert("Invalid Info!!");
                     }
 
                     ajaxInProgress = false;
                 },
                 error: function (data, textStatus, errorThrown) {
-                    alert("error loading data");
+                    showAlert("error loading data");
 
                     ajaxInProgress = false;
                 }
