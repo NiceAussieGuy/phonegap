@@ -93,16 +93,16 @@
 
 	<script type="text/javascript">
 	
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-            document.addEventListener("backbutton", onBackKeyDown, false);
-            setTimeout(function () {
-            	alert("hiding splash on device ready");
-                navigator.splashscreen.hide();
-            }, 2000);            
-        }
-
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		function onDeviceReady() {
+			document.addEventListener("backbutton", onBackKeyDown, false);
+			setTimeout(function () {
+					alert("hiding splash on device ready");
+					navigator.splashscreen.hide();
+				}, 2000);            
+		}
+		
 		function onBackKeyDown() {
 			navigator.app.exitApp();
 		}
@@ -146,17 +146,12 @@
 		
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
-				//alert("hiding splash on read local storage user data"+ uData);
-				//navigator.splashscreen.hide();
 			} catch (e) {
 				uData = null;
-				//alert("hiding splash on uData exception");
-				//navigator.splashscreen.hide();
 			}
-			alert("after exception " + uData);
 
 			if ((uData != undefined || uData != null) && uData.rememberMe) {
-				alert("in if " + uData);
+				
 				//$("#email").text(uData.email);
 				$("#firstname").text(uData.firstname);
 				$("#lastname").text(uData.lastname);
@@ -166,13 +161,17 @@
 				$("#current").text(uData.current);
 				$("#productionPhone").text(uData.productionPhone);
 				$("#productionName").text(uData.productionName);
-				alert("hiding splash after uData read");
-				navigator.splashscreen.hide();
+				
 			} else {
 				alert("in else " + uData);
+				navigator.splashscreen.hide();
+				setTimeout(function () {
+					alert("hiding splash in else timeout");
+					navigator.splashscreen.hide();
+				}, 2000);  
 				window.location.href = 'login.html';
 				alert("hiding splash after redirect to login");
-				navigator.splashscreen.hide();
+				
 			}
 		
 		});
