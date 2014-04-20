@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
+<title>Forgot Password</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="colors/wedding/wedding.css" />
+<link type="text/css" rel="stylesheet" href="css/idangerous.swiper.css" />
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div class="logo">
+        <a href="#">
+            <span>
+                <img title="" style="height: 25px; margin-right: 25px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
+            </span>
+        </a>
+    </div>
+	<div class="swiper-container swiper-parent">
+		<div class="swiper-wrapper">
+
+
+			<!--Login page-->
+			<div class="swiper-slide sliderbg noswipe">
+				<div class="swiper-container  swiper-nested0">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide noswipe">
+							<div class="slide-inner">
+								<div class="pages_container">
+
+									<h2 class="page_title">Forgot Password</h2>
+									<div class="form">
+                                        <form id="forgot" action="#" method="post">
+                                            <label>Email:</label>
+                                            <input type="email" name="email" id="email" value="" class="form_input radius4 txt requiredField" />
+                                            
+                                            <button onclick="javascript: submitData();" name="submit" type="button" id="loginBtn" class="form_submit radius4 green green_borderbottom">Send Reminder</button>
+
+                                        </form>
+									</div>
+									<div class="clearfix"></div>
+
+								</div>
+								<!--End of page container-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.additional-methods.min.js"></script>
+    
+    <script type="text/javascript">
+        $().ready(function () {
+
+            // validate signup form on keyup and submit
+            $("#forgot").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    email: "Please enter a valid email address"
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var ajaxInProgress;
+        //-----------------
+
+        function submitData()
+        {
+            //------------------------
+            if (ajaxInProgress)
+                return;  // if a ajax call is running then return
+            else
+                ajaxInProgress = true;
+            //------------------------
+
+            if ($("#forgot").valid() == false) {
+                alert("Please correct the email address");
+                ajaxInProgress = false;
+                return;
+            }
+
+            var uname=document.getElementById("email").value;
+
+            $.ajax({
+                type : 'POST',           
+                url: 'http://asafilmcrew.com/asafilmcrewapp/forgot.php', // Servlet URL
+                dataType: 'jsonp',
+                jsonp: 'jsonp_callback',
+                data:{
+                    'email': uname
+                },
+                success: function (data, status)
+                {
+                    if (1 == data.flag)
+                    {
+                        alert(data.response);
+                        window.location.href = 'login.html';
+                    } else {                    
+                        alert(response.message);
+                    }
+
+                    //-----------------
+                    ajaxInProgress = false;
+                    //-----------------
+                },
+                error: function (data, textStatus, errorThrown) {
+                    
+                    alert("Connection Error");
+                    //-----------------
+                    ajaxInProgress = false;
+                    //-----------------
+                } 
+            });   
+        }
+
+        function myfunction (data) {
+            //var output = $('#output');
+            alert("Someresult" + data+"<br/>");
+        }
+
+    </script>
+
+</body>
+</html>

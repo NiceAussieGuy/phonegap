@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
+<title>Update Information</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="colors/wedding/wedding.css" />
+<link type="text/css" rel="stylesheet" href="css/idangerous.swiper.css" />
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css' />
+</head>
+    <body>
+        <div class="logo">
+            <a href="#">
+                <span>
+                    <img title="" style="height: 25px; margin-right: 25px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
+                </span>
+            </a>
+        </div>
+        <div class="swiper-container swiper-parent">           
+            <div class="swiper-wrapper">
+
+                <!--Register page-->
+                <div class="swiper-slide sliderbg noswipe">
+                    <div class="swiper-container  swiper-nested">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide noswipe">
+                                <div class="slide-inner">
+                                    <div class="pages_container">
+
+                                        <h2 class="page_title">Update Information</h2>
+                                        <div class="form">
+                                            <form id="register" action="#" method="post">
+                                                <label>First Name*:</label>
+                                                <input type="text" name="firstname" id="firstname" value="" class="form_input radius4 txt " />
+                                                <label>Last Name*:</label>
+                                                <input type="text" name="lastname" id="lastname" value="" class="form_input radius4 txt " />
+                                                <input type="hidden" name="email" id="email" value="" class="form_input radius4 txt " />
+                                                <label>Telephone*:</label>
+                                                <input type="tel" name="telephone" id="telephone" value="" class="form_input radius4 txt " />
+                                                <label>Crew Position:</label>
+                                                <input type="text" name="crewPosition" id="crewPosition" value="" class="form_input radius4 txt " />
+                                                <label>Current Position:</label>
+                                                <input type="text" name="current" id="current" value="" class="form_input radius4 txt " />
+                                                <label>Production Phone:</label>
+                                                <input type="tel" name="productionPhone" id="productionPhone" value="" class="form_input radius4 txt " />
+                                                <label>Production Name:</label>
+                                                <input type="text" name="productionName" id="productionName" value="" class="form_input radius4 txt " />
+                                                <label>Password*:</label>
+                                                <input type="password" name="password" id="password" value="" class="form_input radius4 txt " />
+                                                <label>Verify Password:</label>
+                                                <input type="password" name="passwordCheck" id="passwordCheck" value="" class="form_input radius4 txt " />
+                                                
+                                                <!--<input onclick="showConfirm();" name="submit" type="button" class="form_submit radius4 green green_borderbottom" value="Update" />-->
+
+                                                <button onclick="window.location.href = 'main.html';" type="button" id="regBtn" style="width:49%" class="form_submit radius4 blue green_borderbottom">Cancel</button>
+                                                <button onclick="showConfirm();" name="submit" type="button" id="loginBtn" style="width:49%" class="form_submit radius4 green green_borderbottom">Update</button>
+                                            </form>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                    </div>
+                                    <!--End of page container-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.additional-methods.min.js"></script>
+	
+        <script type="text/javascript" src="js/jquery.swipebox.js"></script>
+        <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
+        <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
+        <script type="text/javascript">
+            var $ = jQuery.noConflict();
+            $(function() {
+                $('.form').find('input, select, textarea').on('touchstart mousedown click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+
+            var swiperParent = new Swiper('.swiper-parent', {
+                //pagination: '.pagination',
+                paginationClickable: true,
+                onSlideChangeEnd: function() {
+                
+                }
+            });
+
+            var swiperNested = new Swiper('.swiper-nested', {
+                scrollContainer: true,
+                mousewheelControl: true,
+                mode: 'vertical',
+                //Enable Scrollbar
+                scrollbar: {
+                    container: '.swiper-scrollbar',
+                    hide: false,
+                    draggable: false
+                }
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            var uData;
+            $(document).ready(function () {
+                try {
+                    uData = JSON.parse(localStorage.getItem("userData"));
+                } catch (e) {
+                    uData = null;
+                }
+
+                if ((uData != undefined || uData != null) && uData.rememberMe) {
+                    $("#email").val(uData.email);
+                    $("#password").val(uData.password);
+                    $("#passwordCheck").val(uData.password);
+                    $("#firstname").val(uData.firstname);
+                    $("#lastname").val(uData.lastname);
+                    $("#telephone").val(uData.telephone);
+                    $("#crewPosition").val(uData.crewPosition);
+
+                    $("#current").val(uData.current);
+                    $("#productionPhone").val(uData.productionPhone);
+                    $("#productionName").val(uData.productionName);
+                } else {
+                    window.location.href = 'login.html';
+                }
+            });
+        </script>
+	
+        <script type="text/javascript">
+            function showConfirm()
+            {
+                var p1 = $("#password").val();
+                var p2 = $("#passwordCheck").val();
+
+                if (p1 != p2)
+                {
+                    alert("Error: You have not entered the password correctly");
+
+                    return;
+                }
+
+                navigator.notification.confirm("Are you sure you want to submit this information?", submitData, "Confirm Registration", 'Submit,Cancel'); 
+            }
+
+	    
+            $().ready(function() {		
+		
+                // validate signup form on keyup and submit
+                $("#register").validate({
+                    rules: {
+                        firstname: {
+                            required: true,
+                            minlength: 3
+                        },
+                        lastname: {
+                            required: true,
+                            minlength: 3
+                        },
+                        telephone: {
+                            required: true
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        passwordCheck: {
+                            required: true,
+                            minlength: 5
+                        }
+                    },
+                    messages: {
+                        firstname: "Please enter your firstname",
+                        lastname: "Please enter your lastname",					
+                        password: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long"
+                        }
+                    }
+                });
+            });
+		</script>
+        <script type="text/javascript">
+            var ajaxInProgress;
+            //-----------------
+
+            function submitData()
+            {
+                //------------------------
+                if (ajaxInProgress)
+                    return;  // if a ajax call is running then return
+                else
+                    ajaxInProgress = true;
+                //------------------------
+
+                if($("#register").valid()==false){
+                    alert("You have not filled the form correctly. Please correct then retry");
+                    ajaxInProgress = false;
+                    return;
+                }
+
+        	
+                var email=document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var firstname = document.getElementById("firstname").value;
+                var lastname = document.getElementById("lastname").value;
+                var telephone = document.getElementById("telephone").value;
+                var crewPosition = document.getElementById("crewPosition").value;
+                var current = document.getElementById("current").value;
+                var productionPhone = document.getElementById("productionPhone").value;
+                var productionName = document.getElementById("productionName").value;
+
+
+                $.ajax({
+                    type : 'POST',           
+                    url: 'http://asafilmcrew.com/asafilmcrewapp/register.php', // Servlet URL
+                    dataType: 'jsonp',
+                    jsonp: 'jsonp_callback',
+                    data:{
+                        'email': email,
+                        'password': password,
+                        'firstname': firstname,
+                        'lastname':lastname,
+                        'telephone' :telephone,
+                        'crewPosition' :crewPosition,
+                        'current' :current,
+                        'productionPhone':productionPhone,
+                        'productionName': productionName,
+                        'check':'1'
+                    },
+                    success: function (data, status) {
+                    
+                        if(1==data.flag)
+                        {
+                            uData.email = $("#email").val();
+                            uData.password = $("#password").val();
+                            uData.firstname=$("#firstname").val();
+                            uData.lastname=$("#lastname").val();
+                            uData.telephone=$("#telephone").val();
+                            uData.crewPosition=$("#crewPosition").val();
+                            uData.current=$("#current").val();
+                            uData.productionPhone=$("#productionPhone").val();
+                            uData.productionName = $("#productionName").val();
+                            
+                            window.localStorage.setItem("userData", JSON.stringify(uData));
+
+                            alert(data.response);
+                            //-----------------
+                            ajaxInProgress = false;
+                            //-----------------
+                            window.location.href = 'main.html';
+                        } 
+                        else {                    
+                            alert(data.response);
+                            //-----------------
+                            ajaxInProgress = false;
+                            //-----------------
+                        }
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                    
+                        alert("Connection Error");
+                    } 
+                });   
+            }
+        </script>
+
+    </body>
+</html>

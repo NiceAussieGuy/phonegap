@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
+<title>Register</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="colors/wedding/wedding.css" />
+<link type="text/css" rel="stylesheet" href="css/idangerous.swiper.css" />
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="logo">
+		<a href="#">
+			<span>
+				<img title="" style="height: 25px; margin-right: 25px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
+			</span>
+		</a>
+	</div>
+	<div class="swiper-container swiper-parent">
+		<div class="swiper-wrapper">
+
+
+			<!--Register page-->
+			<div class="swiper-slide sliderbg">
+				<div class="swiper-container  swiper-nested">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide ">
+							<div class="slide-inner">
+								<div class="pages_container">
+
+									<h2 class="page_title" style="line-height:1">Do you want to update your information?</h2>
+									<div class="form">
+
+										<label style="display:inline">First Name:</label>
+										<label id="firstname" style="display:inline"></label>
+										<br />
+										<label style="display:inline">Last Name:</label>
+										<label id="lastname" style="display:inline"></label>
+										<br />
+										<!--
+										<label style="display:inline">Email:</label>
+										<label id="email" style="display:inline"></label>
+										<br />
+											-->
+										<label style="display:inline">Telephone:</label>
+										<label id="telephone" style="display:inline"></label>
+										<br />
+										<label style="display:inline">Crew Position:</label>
+										<label id="crewPosition" style="display:inline"></label>
+										<br />
+										<label style="display:inline">Current Position:</label>
+										<label id="current" style="display:inline"></label>
+										<br />
+										<label style="display:inline">Production Phone:</label>
+										<label id="productionPhone" style="display:inline"></label>
+										<br />
+										<label style="display:inline">Production Name:</label>
+										<label id="productionName" style="display:inline"></label>
+
+
+										<br />
+										<br />
+										<!-- <input onclick="javascript:showConfirm()" name="submit" type="button"
+													class="form_submit radius4 green green_borderbottom" value="Register" />-->
+										<button type="button" id="yesBtn" style="width:49%" class="form_submit radius4 blue blue_borderbottom" onclick="window.location.href = 'update.html';">Yes</button>
+										<button type="button" id="noBtn" style="width:49%" class="form_submit radius4 green green_borderbottom" onclick="window.location.href = 'main.html';">No</button>
+
+
+									</div>
+									<div class="clearfix"></div>
+
+								</div>
+								<!--End of page container-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+
+	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.additional-methods.min.js"></script>
+
+	<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+	<script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
+	<script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
+
+	<script type="text/javascript">
+	
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, false);
+            setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);            
+        }
+
+		function onBackKeyDown() {
+			navigator.app.exitApp();
+		}
+
+
+	</script>
+
+	<script type="text/javascript">
+
+		var $ = jQuery.noConflict();
+		$(function () {
+			$('.form').find('input, select, textarea').on('touchstart mousedown click', function (e) {
+				e.stopPropagation();
+			});
+		});
+		var swiperParent = new Swiper('.swiper-parent', {
+			//pagination: '.pagination',
+			paginationClickable: true,
+			onSlideChangeEnd: function () {
+
+			}
+		});
+
+		var swiperNested = new Swiper('.swiper-nested', {
+			scrollContainer: true,
+			mousewheelControl: true,
+			mode: 'vertical',
+			//Enable Scrollbar
+			scrollbar: {
+				container: '.swiper-scrollbar',
+				hide: false,
+				draggable: false
+			}
+		});
+
+	</script>
+
+	<script type="text/javascript">
+		var uData;
+		$(document).ready(function () {
+		
+			try {
+				uData = JSON.parse(localStorage.getItem("userData"));
+			} catch (e) {
+				uData = null;
+			}
+
+			if ((uData != undefined || uData != null) && uData.rememberMe) {
+				//$("#email").text(uData.email);
+				$("#firstname").text(uData.firstname);
+				$("#lastname").text(uData.lastname);
+				$("#telephone").text(uData.telephone);
+				$("#crewPosition").text(uData.crewPosition);
+
+				$("#current").text(uData.current);
+				$("#productionPhone").text(uData.productionPhone);
+				$("#productionName").text(uData.productionName);
+		        navigator.splashscreen.hide();
+			} else {
+				window.location.href = 'login.html';
+		        navigator.splashscreen.hide();
+			}
+		
+		});
+	</script>
+
+	<script type="text/javascript">
+
+	</script>
+
+</body>
+
+</html>
