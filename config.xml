@@ -42,6 +42,7 @@
   <feature name="SplashScreen">
     <param name="ios-package" value="CDVSplashScreen" />
 </feature>
+<gap:plugin name="org.apache.cordova.splashscreen" />
 
   <!-- Core plugins 
 <feature name="Geolocation">
