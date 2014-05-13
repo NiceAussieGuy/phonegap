@@ -68,6 +68,8 @@
     <param name="ios-package" value="CDVNotification" />
   </feature>
 
+  <gap:platform name="ios" />
+  <gap:platform name="android" />
   <!-- Core plugins 
 <feature name="Geolocation">
 <param name="ios-package" value="CDVLocation"/>
