@@ -44,8 +44,9 @@
 -->
 
   <!-- Plugins -->
+<!--  
   <gap:plugin name="com.phonegap.plugins.pushplugin" />
-  
+-->
   <gap:plugin name="org.apache.cordova.device" />
   <gap:plugin name="org.apache.cordova.splashscreen" />
   
