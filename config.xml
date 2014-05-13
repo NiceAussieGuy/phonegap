@@ -38,8 +38,10 @@
   <preference name="android-installLocation"    value="auto" />
   <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
+<!--  
   <preference name="SplashScreen" value="splash" />
   <preference name="SplashScreenDelay" value="4000" />
+-->
 
   <!-- Plugins -->
   <gap:plugin name="com.phonegap.plugins.pushplugin" />
@@ -70,9 +72,11 @@
   <feature name="Notification">
     <param name="ios-package" value="CDVNotification" />
   </feature>
-
+<!--
   <gap:platform name="ios" />
   <gap:platform name="android" />
+-->
+
   <!-- Core plugins 
 <feature name="Geolocation">
 <param name="ios-package" value="CDVLocation"/>
