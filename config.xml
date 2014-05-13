@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="com.asafilmcrew" version="2.3.0" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
+<widget id="com.asafilmcrew" version="2.5.0" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
   <name>ASA Film Crew</name>
   <description>
     ASA FilmCrew App is your link to specialized crew for the entertainment industry such as: EMT's, Studio Teachers, Baby Nurses, Set Security, Off-Duty LAPD Officers, Ambulances, Lifeguards, Scuba Divers, Doctors, etc. Our prices are amongst the industry best and our quality crew members are ready to serve you. Our office is open 24 hours per day for your production needs. Our App is your gateway to immediate Bookings and Contact for our services...a must for anyone in production.
@@ -37,6 +37,9 @@
   <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
   <preference name="android-installLocation"    value="auto" />
   <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+
+  <preference name="SplashScreen" value="splash" />
+  <preference name="SplashScreenDelay" value="4000" />
 
   <!-- Plugins -->
   <gap:plugin name="com.phonegap.plugins.pushplugin" />
@@ -168,6 +171,7 @@
   <gap:splash src="res/screen/android/screen-hdpi-portrait.png"       gap:platform="android" gap:density="hdpi" />
   <gap:splash src="res/screen/android/screen-xhdpi-portrait.png"      gap:platform="android" gap:density="xhdpi" />
 -->
+  <gap:splash src="splash.png" />
   <gap:splash src="res/screen/ios/Default.png"         gap:platform="ios"     width="320" height="480" />
   <gap:splash src="res/screen/ios/Default@2x.png"      gap:platform="ios"     width="640" height="960" />
   <gap:splash src="res/screen/ios/Default-568h@2x.png" gap:platform="ios"     width="640" height="1136" />
