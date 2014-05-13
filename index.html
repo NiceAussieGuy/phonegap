@@ -95,11 +95,11 @@
 	<script type="text/javascript">
 	
 		function showAlert(message, title) {
-		    if (navigator.notification) {
-		        navigator.notification.alert(message, null, title, 'OK');
-		    } else {
-		        alert(title ? (title + ": " + message) : message);
-		    }
+			if (navigator.notification) {
+				navigator.notification.alert(message, null, title, 'OK');
+			} else {
+				alert(title ? (title + ": " + message) : message);
+			}
 		}
 		
 	
@@ -110,13 +110,56 @@
 			
 			$(document).ready(function () {navigator.splashscreen.hide();});
 			
-			setTimeout(function() {
-				navigator.splashscreen.hide();
-			}, 2000);
+			
+
+			try {
+				var pushNotification = window.plugins.pushNotification;
+				pushNotification.register(successHandler, errorHandler,{"senderID":"659859389520","ecb":"onNotificationGCM"});
+			} catch (ex) {
+				showAlert(ex, 'push error');
+			}
 			
 			loadData();
+
+			setTimeout(function() {
+				navigator.splashscreen.hide();
+			}, 3000);
 		}
 		
+		function successHandler(result) {
+			showAlert('Callback Success! Result = '+result, "Success")
+		}
+
+		function errorHandler(error) {
+			showAlert(error, "Error");
+		}
+
+		function onNotificationGCM(e) {
+			switch( e.event )
+			{
+				case 'registered':
+					if ( e.regid.length > 0 )
+					{
+						console.log("Regid " + e.regid);
+						showAlert('registration id = '+e.regid);
+					}
+				break;
+
+				case 'message':
+				  // this is the actual push notification. its format depends on the data     model from the push server
+				  showAlert('message = '+e.message+' msgcnt = '+e.msgcnt, "Message");
+				break;
+
+				case 'error':
+				  showAlert('GCM error = '+e.msg, "Error");
+				break;
+
+				default:
+				  showAlert('An unknown GCM event has occurred', "Unknown Event");
+				  break;
+			}
+		}
+
 		function onBackKeyDown() {
 			navigator.app.exitApp();
 		}
