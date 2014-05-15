@@ -157,10 +157,10 @@
   <icon src="res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
   <icon src="res/icon/ios/icon-76.png"            gap:platform="ios"        width="76" height="76" />
   <icon src="res/icon/ios/icon-60.png"            gap:platform="ios"        width="60" height="60" />
-  <icon src="res/icon/ios/icon-60@2x.png"         gap:platform="ios"        width="120" height="120" />
-  <icon src="res/icon/ios/icon-76@2x.png"         gap:platform="ios"        width="152" height="152" />
-  <icon src="res/icon/ios/icon-57@2x.png"         gap:platform="ios"        width="114" height="114" />
-  <icon src="res/icon/ios/icon-72@2x.png"         gap:platform="ios"        width="144" height="144" />
+  <icon src="res/icon/ios/icon-60-2x.png"         gap:platform="ios"        width="120" height="120" />
+  <icon src="res/icon/ios/icon-76-2x.png"         gap:platform="ios"        width="152" height="152" />
+  <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
+  <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
 <!--
   <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" />
   <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" gap:state="hover"/>
@@ -180,12 +180,12 @@
   <gap:splash src="splash.png" />
 -->
   <gap:splash src="res/screen/ios/Default.png"         gap:platform="ios"     width="320" height="480" />
-  <gap:splash src="res/screen/ios/Default@2x.png"      gap:platform="ios"     width="640" height="960" />
-  <gap:splash src="res/screen/ios/Default-568h@2x.png" gap:platform="ios"     width="640" height="1136" />
+  <gap:splash src="res/screen/ios/Default-2x.png"      gap:platform="ios"     width="640" height="960" />
+  <gap:splash src="res/screen/ios/Default-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
   <gap:splash src="res/screen/ios/Default-Portrait.png"           gap:platform="ios"     width="768" height="1024" />
-  <gap:splash src="res/screen/ios/Default-Portrait@2x.png"        gap:platform="ios"     width="1536" height="2048" />
+  <gap:splash src="res/screen/ios/Default-Portrait-2x.png"        gap:platform="ios"     width="1536" height="2048" />
   <gap:splash src="res/screen/ios/Default-Landscape.png"          gap:platform="ios"     width="1024" height="768" />
-  <gap:splash src="res/screen/ios/Default-Landscape@2x.png"       gap:platform="ios"     width="2048" height="1536" />
+  <gap:splash src="res/screen/ios/Default-Landscape-2x.png"       gap:platform="ios"     width="2048" height="1536" />
   <!--
   <gap:splash src="res/screen/blackberry/screen-225.png"              gap:platform="blackberry" />
   <gap:splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
