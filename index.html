@@ -113,6 +113,7 @@
 			try {
 				var pushNotification = window.plugins.pushNotification;
 				pushNotification.register(successHandler, errorHandler, {"senderID":"659859389520","ecb":"onNotificationGCM"});
+				window.onNotificationGCM = onNotificationGCM;
 			} catch (ex) {
 				showAlert(ex, 'push error');
 			}
