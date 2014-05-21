@@ -127,15 +127,18 @@
 		}
 		
 		function successHandler(result) {
-			showAlert('Callback Success! Result = '+result, "Success");
+			//showAlert('Callback Success! Result = '+result, "Success");
+			console.log('Success: Callback Success! Result = '+result);
 		}
 
 		function errorHandler(error) {
-			showAlert(error, "Error");
+			// showAlert(error, "Error");
+			console.log("Error ");
 		}
 
 		function onNotificationGCM(e) {
-			showAlert('An unknown', "Unknown Event");
+			// showAlert('An unknown', "Unknown Event");
+			console.log("on notification ");
 			switch( e.event )
 			{
 				case 'registered':
@@ -148,15 +151,18 @@
 
 				case 'message':
 					// this is the actual push notification. its format depends on the data     model from the push server
-					showAlert('message = '+e.message+' msgcnt = '+e.msgcnt, "Message");
+					// showAlert('message = '+e.message+' msgcnt = '+e.msgcnt, "Message");
+					console.log('message = '+e.message+' msgcnt = '+e.msgcnt);
 					break;
 
 				case 'error':
-				 	showAlert('GCM error = '+e.msg, "Error");
+				 	//showAlert('GCM error = '+e.msg, "Error");
+				 	console.log('GCM error = '+e.msg);
 					break;
 
 				default:
-					showAlert('An unknown GCM event has occurred', "Unknown Event");
+					// showAlert('An unknown GCM event has occurred', "Unknown Event");
+					console.log('An unknown GCM event has occurred');
 					break;
 			}
 		}
