@@ -93,6 +93,7 @@
 	<script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
 
 	<script type="text/javascript">
+		var pushNotification;
 	
 		function showAlert(message, title) {
 			if (navigator.notification) {
@@ -111,9 +112,9 @@
 			$(document).ready(function () {navigator.splashscreen.hide();});			
 			
 			try {
-				var pushNotification = window.plugins.pushNotification;
+				pushNotification = window.plugins.pushNotification;
 				pushNotification.register(successHandler, errorHandler, {"senderID":"659859389520","ecb":"onNotificationGCM"});
-				window.onNotificationGCM = onNotificationGCM;
+				// window.onNotificationGCM = onNotificationGCM;
 			} catch (ex) {
 				showAlert(ex, 'push error');
 			}
