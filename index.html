@@ -112,7 +112,7 @@
 			
 			try {
 				var pushNotification = window.plugins.pushNotification;
-				pushNotification.register(successHandler, errorHandler,{"senderID":"659859389520","ecb":"onNotificationGCM"});
+				pushNotification.register(successHandler, errorHandler, {"senderID":"659859389520","ecb":"onNotificationGCM"});
 			} catch (ex) {
 				showAlert(ex, 'push error');
 			}
@@ -135,6 +135,7 @@
 		}
 
 		function onNotificationGCM(e) {
+			showAlert('An unknown', "Unknown Event");
 			switch( e.event )
 			{
 				case 'registered':
