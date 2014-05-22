@@ -124,7 +124,7 @@
 			
 			setTimeout(function() {
 				navigator.splashscreen.hide();
-				loadData();
+
 			}, 3000);
 			
 		}
@@ -150,6 +150,7 @@
 					{
 						console.log("Regid " + e.regid);
 						showAlert('registration id = '+e.regid);
+						loadData();
 					}
 					break;
 
