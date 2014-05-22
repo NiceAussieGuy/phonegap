@@ -119,11 +119,12 @@
 				showAlert(ex, 'push error');
 			}
 			
-			loadData();
+			
 
 			
 			setTimeout(function() {
 				navigator.splashscreen.hide();
+				loadData();
 			}, 3000);
 			
 		}
