@@ -1236,7 +1236,7 @@
 		}
 
 		function errorHandler(error) {
-			showAlert(error, "Push Notification Error");
+			//showAlert(error, "Push Notification Error");
 			console.log("Push Notification Error");
 		}
 
@@ -1244,6 +1244,7 @@
 			// Your iOS push server needs to know the token before it can push to this device
 			// here is where you might want to send it the token for later use.
 			showAlert('device token = ' + result, 'Token');
+			console.log('device token = ' + result);
 		}
 
 		function onNotificationGCM(e) {
