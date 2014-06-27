@@ -97,10 +97,12 @@
 		
 		//$(document).ready(function () {navigator.splashscreen.hide();});
 		$(document).ready(function () {
+			showAlert("in document ready", "title");
 			loadData();
 		});
 		
 		function onDeviceReady() {
+			showAlert("in device ready", "title");
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
@@ -174,10 +176,11 @@
 		var uData;
 		var isLoadDataCalled=false;
 		function loadData() {
+			showAlert("in loaddata", "title");
 			if(isLoadDataCalled){
 				return;
 			}
-			
+			showAlert("in loaddata running", "title");
 			isLoadDataCalled = true;
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
