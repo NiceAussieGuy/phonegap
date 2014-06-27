@@ -110,12 +110,15 @@
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
+			
 			$(document).ready(function () {navigator.splashscreen.hide();});			
 			
 			//hide splash
 			setTimeout(function() {
 				navigator.splashscreen.hide();
 			}, 3000);
+			
+			navigator.splashscreen.hide();
 
 			loadData();
 		}
