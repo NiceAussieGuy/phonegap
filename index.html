@@ -97,11 +97,15 @@
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
+		showAlert("second", "title");
+		
 		//$(document).ready(function () {navigator.splashscreen.hide();});
 		$(document).ready(function () {
 			showAlert("in document ready", "title");
 			loadData();
 		});
+		
+		showAlert("third", "title");
 		
 		function onDeviceReady() {
 			showAlert("in device ready", "title");
