@@ -93,7 +93,6 @@
 	<script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
 
 	<script type="text/javascript">
-		var pushNotification;
 	
 		function showAlert(message, title) {
 			if (navigator.notification) {
@@ -107,6 +106,9 @@
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
 		//$(document).ready(function () {navigator.splashscreen.hide();});
+		$(document).ready(function () {
+			loadData();
+		});
 		
 		function onDeviceReady() {
 			document.addEventListener("backbutton", onBackKeyDown, false);
@@ -169,8 +171,13 @@
 
 	<script type="text/javascript">
 		var uData;
+		var isLoadDataCalled=false;
 		function loadData() {
+			if(isLoadDataCalled){
+				return;
+			}
 			
+			isLoadDataCalled = true;
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
 			} catch (e) {
