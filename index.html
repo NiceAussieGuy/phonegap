@@ -106,6 +106,8 @@
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
+		$(document).ready(function () {navigator.splashscreen.hide();});
+		
 		function onDeviceReady() {
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
