@@ -106,13 +106,14 @@
 	
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
-		$(document).ready(function () {navigator.splashscreen.hide();});
+		//$(document).ready(function () {navigator.splashscreen.hide();});
 		
 		function onDeviceReady() {
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
 			
+			/*
 			$(document).ready(function () {navigator.splashscreen.hide();});			
 			
 			//hide splash
@@ -121,6 +122,7 @@
 			}, 3000);
 			
 			navigator.splashscreen.hide();
+			*/
 
 			loadData();
 		}
