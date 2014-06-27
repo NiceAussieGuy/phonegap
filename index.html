@@ -10,7 +10,7 @@
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css' />
 </head>
-<body>
+<body onload="onLoad()">
 	<div class="logo">
 		<a href="#">
 			<span>
@@ -95,7 +95,9 @@
 		showAlert("first", "title");
 		alert(": ");
 	
-		document.addEventListener("deviceready", onDeviceReady, false);
+		function onLoad() {
+			document.addEventListener("deviceready", onDeviceReady, false);
+		}
 		
 		showAlert("second", "title");
 		
