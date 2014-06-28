@@ -193,11 +193,9 @@
 		var uData;
 		var isLoadDataCalled=false;
 		function loadData() {
-			showAlert("in loaddata", "title");
 			if(isLoadDataCalled){
 				return;
 			}
-			showAlert("in loaddata running", "title");
 			isLoadDataCalled = true;
 			try {
 				uData = JSON.parse(localStorage.getItem("userData"));
