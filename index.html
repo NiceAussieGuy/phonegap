@@ -12,7 +12,7 @@
 </head>
 <body onload="onLoad()">
 	<div class="logo">
-		<a href="#">
+		<a href="#" onclick="javascript: LoadMenuPage();">
 			<span>
 				<img title="" style="height: 25px; margin-right: 25px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
 			</span>
@@ -125,6 +125,23 @@
 
 		function onBackKeyDown() {
 			navigator.app.exitApp();
+		}
+
+				function LoadMenuPage(){
+			var uData;
+
+			try {
+				uData = JSON.parse(localStorage.getItem("userData"));
+			} catch (e) {
+				uData = null;
+			}
+
+
+			if ((uData != undefined || uData != null) && uData.rememberMe) {
+				window.location.href = 'main.html';
+			} else {
+				window.location.href = 'login.html';
+			}
 		}
 
 

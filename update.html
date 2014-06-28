@@ -12,7 +12,7 @@
 </head>
     <body>
         <div class="logo">
-            <a href="#">
+            <a href="#" onclick="javascript: LoadMenuPage();">
                 <span>
                     <img title="" style="height: 25px; margin-right: 25px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
                 </span>
@@ -80,13 +80,30 @@
         <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
         <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.1.js"></script>
         <script type="text/javascript">
-		function showAlert(message, title) {
-			if (navigator.notification) {
-				navigator.notification.alert(message, null, title, 'OK');
-			} else {
-				alert(title ? (title + ": " + message) : message);
+			function showAlert(message, title) {
+				if (navigator.notification) {
+					navigator.notification.alert(message, null, title, 'OK');
+				} else {
+					alert(title ? (title + ": " + message) : message);
+				}
 			}
-		}
+
+			function LoadMenuPage(){
+				var uData;
+
+				try {
+					uData = JSON.parse(localStorage.getItem("userData"));
+				} catch (e) {
+					uData = null;
+				}
+
+
+				if ((uData != undefined || uData != null) && uData.rememberMe) {
+					window.location.href = 'main.html';
+				} else {				  
+				window.location.href = 'login.html';
+			}
+			}
         
             var $ = jQuery.noConflict();
             $(function() {

@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="logo">
-        <a href="#">
+        <a href="#" onclick="javascript: LoadMenuPage();">
             <span>
                 <img title="" style="height: 60px; margin-right: 25px;margin-bottom: -20px;" alt="" src="colors/wedding/images/logo.png" border="0" />ASA FILM CREW
             </span>
@@ -74,9 +74,14 @@
 				alert(title ? (title + ": " + message) : message);
 			}
 		}
-    
-        var uData;
+        
         $(document).ready(function () {
+            LoadMenuPage();
+        });
+
+        function LoadMenuPage(){
+            var uData;
+
             try {
                 uData = JSON.parse(localStorage.getItem("userData"));
             } catch (e) {
@@ -86,8 +91,10 @@
 
             if ((uData != undefined || uData != null) && uData.rememberMe) {
                 window.location.href = 'main.html';
+            } else {                  
+                window.location.href = 'login.html';
             }
-        });
+        }
     </script>
 
     <script type="text/javascript">
