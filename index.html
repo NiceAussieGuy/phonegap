@@ -85,8 +85,6 @@
 	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 	<script type="text/javascript">
 		
-		document.addEventListener("deviceready", onDeviceReady, false);
-		
 		function showAlert(message, title) {
 			if (navigator.notification) {
 				navigator.notification.alert(message, null, title, 'OK');
@@ -94,44 +92,36 @@
 				alert(title ? (title + ": " + message) : message);
 			}
 		}
-		
-		
-	
+
 		function onLoad() {
-			//loadData();
+			document.addEventListener("deviceready", onDeviceReady, false);
+			document.addEventListener("backbutton", onBackKeyDown, false);
 		}
 		
-		showAlert("second", "title");
-		
-		//$(document).ready(function () {navigator.splashscreen.hide();});
 		$(document).ready(function () {
-			showAlert("in document ready", "title");
-			//loadData();
+			//hide splash
+			navigator.splashscreen.hide();
+			setTimeout(function() {
+				navigator.splashscreen.hide();
+			}, 3000);			
+			navigator.splashscreen.hide();
+
+			loadData();
 		});
 		
-		showAlert("third", "title");
-		
 		function onDeviceReady() {
-			showAlert("in device ready", "title");
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
-			
-			/*
-			$(document).ready(function () {navigator.splashscreen.hide();});			
-			
-			//hide splash
+			navigator.splashscreen.hide();
 			setTimeout(function() {
 				navigator.splashscreen.hide();
-			}, 3000);
-			
+			}, 3000);			
 			navigator.splashscreen.hide();
-			*/
+			
 
 			loadData();
 		}
-		
-		
 
 		function onBackKeyDown() {
 			navigator.app.exitApp();
