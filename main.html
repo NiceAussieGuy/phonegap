@@ -844,7 +844,7 @@
 											<label>State</label>
 											<input type="text" name="s" id="s" value="" class="form_input radius4 txt required" />
 											<label>Zip</label>
-											<input type="number" name="z" id="z" value="" class="form_input radius4 txt required" />
+											<input type="number" pattern="[0-9]*" name="z" id="z" value="" class="form_input radius4 txt required" />
 											<label>Company Phone Number *</label>
 											<input type="tel" name="cpn" id="cpn" value="" class="form_input radius4 txt required" />
 											<label>Company Fax Number</label>
@@ -878,7 +878,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>How many Security Guards will you need?</label>
-															<input type="number" name="nsg" value="" class="form_input radius4 txt" />
+															<input type="number" pattern="[0-9]*" name="nsg" value="" class="form_input radius4 txt" />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -893,7 +893,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>How many LAPD Off-Duty Officers (Non-motorcycle) will you need?</label>
-															<input type="number" name="ndo" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="ndo" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -908,7 +908,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>How many LAPD Off-Duty Officers (Motorcycle) will you need?</label>
-															<input type="number" name="ndom" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="ndom" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -926,15 +926,15 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>Total Number of Children?</label>
-															<input type="number" name="tnoc" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="tnoc" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>Age Range?</label>
-															<input type="text" name="ar" value="" class="form_input radius4 txt " />
+															<input type="number" name="ar" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>Number of children less than 6 months?</label>
-															<input type="number" name="nclt6m" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="nclt6m" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -950,11 +950,11 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>Total Number of Babies under 6 months?</label>
-															<input type="number" name="tnob" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="tnob" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>How old are they in terms of months?</label>
-															<input type="number" name="hoat" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="hoat" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -988,7 +988,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>EMT: Special Circumstances and how many will you need?</label>
-															<input type="number" name="emt" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="emt" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1003,7 +1003,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>Life Guard: Special Circumstances and how many will you need?</label>
-															<input type="number" name="lg" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="lg" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1018,7 +1018,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>Scuba Driver: Special Circumstances and how many will you need?</label>
-															<input type="number" name="sd" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="sd" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1033,7 +1033,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>Doctor: Special Circumstances and how many will you need?</label>
-															<input type="number" name="doc" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="doc" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1048,7 +1048,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>BLS Ambulance: Special Circumstances and for how many hours will you need it?</label>
-															<input type="number" name="bls" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="bls" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1063,7 +1063,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>>ALS Ambulance: Special Circumstances and for how many hours will you need it?</label>
-															<input type="number" name="als" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="als" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1081,7 +1081,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>EMT/LifeGuard: Special Circumstances and how many will you need?</label>
-															<input type="number" name="emtlg" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="emtlg" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1096,7 +1096,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>EMT/ScubaDriver: Special Circumstances and how many will you need?</label>
-															<input type="number" name="emtsd" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="emtsd" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1111,7 +1111,7 @@
 													<ul class="listing_detailed">
 														<li>
 															<label>LifeGuard/ScubaDriver: Special Circumstances and how many will you need?</label>
-															<input type="number" name="lgsd" value="" class="form_input radius4 txt " />
+															<input type="number" pattern="[0-9]*" name="lgsd" value="" class="form_input radius4 txt " />
 														</li>
 														<li>
 															<label>What is the first date you will need this/these person(s)?</label>
@@ -1141,7 +1141,7 @@
 											</div>
 
 											<label>Approximate Number Of Days Needed</label>
-											<input type="number" name="anodn" id="anodn" value="" class="form_input radius4 txt " />
+											<input type="number" pattern="[0-9]*" name="anodn" id="anodn" value="" class="form_input radius4 txt " />
 											<label>First Day Call Time</label>
 											<input type="text" name="fdct" id="fdct" value="" class="form_input radius4 txt " />
 											<label>First Day Location</label>
