@@ -83,11 +83,12 @@
 
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/PushipNotification.js"></script>
 	<script type="text/javascript">
 		
 		function showAlert(message, title) {
 			if (navigator.notification) {
-				navigator.notification.alert(message, null, title, 'OK');
+				navigator.notification.alert(message, null, title?title:'Alert', 'OK');
 			} else {
 				alert(title ? (title + ": " + message) : message);
 			}
@@ -99,6 +100,8 @@
 		}
 		
 		$(document).ready(function () {
+			document.addEventListener("backbutton", onBackKeyDown, false);
+
 			//hide splash
 			navigator.splashscreen.hide();
 			setTimeout(function() {
@@ -127,7 +130,7 @@
 			navigator.app.exitApp();
 		}
 
-				function LoadMenuPage(){
+		function LoadMenuPage(){
 			var uData;
 
 			try {
@@ -144,9 +147,39 @@
 			}
 		}
 
+		function RegisterPuship()
+		{
+			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
+
+			if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
+				Puship.GCM.Register(GCMCode,
+				{
+					successCallback: function (pushipresult){
+						showAlert("device registered");
+					},
+					failCallback: function (pushipresult){
+						showAlert("error during registration: "+ JSON.stringify(pushipresult));
+					}
+				});
+			} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+				Puship.APNS.Register(
+				{
+					successCallback: function (pushipresult){
+						showAlert("device registered");
+					},
+					failCallback: function (pushipresult){
+						showAlert("error during registration: "+ JSON.stringify(pushipresult));
+					}
+				});
+			} else {
+				Console.log("Not supported platform");
+			}
+		}
+
 
 	</script>
-	<script type="text/javascript" src="PushNotification.js"></script>
+	<!--<script type="text/javascript" src="PushNotification.js"></script>-->
 
 	
 	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
