@@ -108,9 +108,7 @@
 				navigator.splashscreen.hide();
 			}, 3000);			
 			navigator.splashscreen.hide();
-
-			showAlert(device.cordova,"ready");
-			console.log(device.cordova);
+			
 			RegisterPuship();
 			loadData();
 		});
@@ -125,8 +123,6 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 			
-			showAlert(device.cordova,"deviceready");
-			console.log(device.cordova);
 			RegisterPuship();
 			loadData();
 		}
@@ -154,6 +150,10 @@
 
 		function RegisterPuship()
 		{
+			while(device.available == false){
+				setTimeout(3000);
+			}
+
 			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
 
 			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
