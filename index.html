@@ -109,6 +109,7 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 
+			showAlert(device.cordova,"ready");
 			console.log(device.cordova);
 			RegisterPuship();
 			loadData();
@@ -124,6 +125,7 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 			
+			showAlert(device.cordova,"deviceready");
 			console.log(device.cordova);
 			RegisterPuship();
 			loadData();
