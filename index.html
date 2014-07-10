@@ -150,9 +150,12 @@
 
 		function RegisterPuship()
 		{
+			showAlert("in reg");
 			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
+			showAlert("starting if else");
 
 			if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+				showAlert("android");
 				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
 				Puship.GCM.Register(GCMCode,
 				{
@@ -164,6 +167,7 @@
 					}
 				});
 			} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+				showAlert("iphone");
 				Puship.APNS.Register(
 				{
 					successCallback: function (pushipresult){
@@ -174,6 +178,7 @@
 					}
 				});
 			} else {
+				showAlert("error");
 				Console.log("Not supported platform");
 			}
 		}
