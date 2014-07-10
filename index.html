@@ -150,11 +150,10 @@
 
 		function RegisterPuship()
 		{
-			showAlert("in reg");
 			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
-			showAlert("starting if else");
 
-			if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
+			if ( device.platform == 'android' || device.platform == 'Android') {
 				showAlert("android");
 				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
 				Puship.GCM.Register(GCMCode,
@@ -166,7 +165,8 @@
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
 					}
 				});
-			} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
+			} else { //"iOS"
 				showAlert("iphone");
 				Puship.APNS.Register(
 				{
