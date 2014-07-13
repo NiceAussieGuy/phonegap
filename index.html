@@ -169,15 +169,15 @@
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
 			} else { //"iOS"
-				//showAlert("iphone");
+				showAlert("iphone");
 				Puship.APNS.Register(
 				{
 					successCallback: function (pushipresult){
-						//showAlert("device registered");
+						showAlert("device registered");
 						loadData();
 					},
 					failCallback: function (pushipresult){
-						//showAlert("error during registration: "+ JSON.stringify(pushipresult));
+						showAlert("error during registration: "+ JSON.stringify(pushipresult));
 						loadData();
 					}
 				});
