@@ -160,11 +160,9 @@
 				{
 					successCallback: function (pushipresult){
 						showAlert("device registered");
-						loadData();
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
-						loadData();
 					}
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
@@ -174,11 +172,9 @@
 				{
 					successCallback: function (pushipresult){
 						showAlert("device registered");
-						loadData();
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
-						loadData();
 					}
 				});
 			}
