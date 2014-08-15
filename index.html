@@ -95,8 +95,10 @@
 		}
 
 		function onLoad() {
+			showAlert("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
+			showAlert("end onload");
 		}
 		
 		$(document).ready(function () {
