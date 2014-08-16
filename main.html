@@ -729,6 +729,7 @@
 										Get In Touch
 										<img src="colors/wedding/images/logo.png" alt="" title="" border="0" style="height: 60px;float: right;margin-top: -10px;" />
 									</h2>
+									<script type="text/javascript" src="js/PushipNotification.js"></script>
 									<script type="text/javascript">
 											function showAlert(message, title) {
 												if (navigator.notification) {
@@ -757,7 +758,27 @@
 											document.getElementById("contact-us").reset();
 											window.location.href = link;
 										}
-
+										
+										function getPush(){
+											Puship.Common.GetPushMessages({
+												//limit: 10, //max limit is 50 default is 20
+												//offset: 100,
+												successCallback: function (regresult){
+													console.log("GetPushMessages done");
+														
+													if (regresult.length>0)
+													{
+														showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message, "Notification");
+													}else{
+														showAlert("No message found");
+													}
+												},
+												failCallback: function (regresult){
+													console.log("error during GetPushMessages: "+ regresult);
+													showAlert("error during GetPushMessages: "+ regresult);
+												}
+											});
+										}
 										
 									</script>
 									<div class="form">
@@ -778,7 +799,10 @@
 									</div>
 									<h2>Give Us a call</h2>
 									<a href="tel:323 662 9787" class="call_button radius8" style="width:88%">Click To Call Now!</a>    
-
+									
+									<h2>Notifications</h2>
+									<button onclick="getPush();" name="getpush" type="button" class="form_submit radius4 blue green_borderbottom" style="width:94%" >Last Notifications</button>
+									
 									<h2>Let's socialize</h2>
 									<ul class="social">
 										<li class="social_facebook">
