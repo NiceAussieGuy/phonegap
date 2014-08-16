@@ -126,7 +126,7 @@
 			navigator.splashscreen.hide();
 			
 			RegisterPuship();
-			loadData();
+			//loadData();
 		}
 
 		function onBackKeyDown() {
@@ -162,6 +162,7 @@
 				{
 					successCallback: function (pushipresult){
 						showAlert("device registered");
+						loadData();
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
@@ -174,6 +175,7 @@
 				{
 					successCallback: function (pushipresult){
 						showAlert("device registered");
+						loadData();
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
