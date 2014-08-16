@@ -95,10 +95,10 @@
 		}
 
 		function onLoad() {
-			showAlert("start onload");
+			//showAlert("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
-			showAlert("end onload");
+			//showAlert("end onload");
 		}
 		
 		$(document).ready(function () {
@@ -156,12 +156,12 @@
 
 			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
 			if ( device.platform == 'android' || device.platform == 'Android') {
-				showAlert("android");
+				//showAlert("android");
 				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
 				Puship.GCM.Register(GCMCode,
 				{
 					successCallback: function (pushipresult){
-						showAlert("device registered");
+						//showAlert("device registered");
 						loadData();
 					},
 					failCallback: function (pushipresult){
@@ -170,11 +170,11 @@
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
 			} else { //"iOS"
-				showAlert("iphone");
+				//showAlert("iphone");
 				Puship.APNS.Register(
 				{
 					successCallback: function (pushipresult){
-						showAlert("device registered");
+						//showAlert("device registered");
 						loadData();
 					},
 					failCallback: function (pushipresult){
