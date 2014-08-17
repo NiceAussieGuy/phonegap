@@ -186,6 +186,18 @@
 				showAlert("error");
 				Console.log("Not supported platform");
 			}*/
+			Puship.Common.OnPushReceived(function(event) {
+				console.log('push received');
+				
+				try
+				{
+					showAlert(event.notification.Alert,"Notification");
+				}
+				catch(err)
+				{
+					console.warn("Cannot display alert in background");
+				}
+			});
 		}
 
 
