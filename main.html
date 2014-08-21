@@ -24,30 +24,6 @@
 
 </head>
 <body>
-	<script type="text/javascript" src="js/PushipNotification.js"></script>
-	<script type="text/javascript">
-		function getPush(){
-			Puship.Common.GetPushMessages(
-	        	{
-					//limit: 10, //max limit is 50 default is 20
-	   				//offset: 100,
-					successCallback: function (regresult){
-		                console.log("GetPushMessages done");
-		                
-		                if (regresult.length>0)
-	                	{
-		                	alert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-	                	}else{
-	                		alert("No message found");
-	                	}
-					},
-					failCallback: function (regresult){
-						console.log("error during GetPushMessages: "+ regresult);
-						alert("error during GetPushMessages: "+ regresult);
-					}
-				});
-		}
-	</script>
 	<div id="header">
 		<div class="gohome radius20"><a href="#"><img src="images/icons/home.png" alt="" title="" /></a></div>
 		<div class="gomenu radius20"><a href="#" onclick="swiperParent.swipeTo(6);"><img src="images/icons/contact.png" alt="" title="" /></a></div>
@@ -74,7 +50,7 @@
 										<li><a href ="#" onclick="swiperParent.swipeTo(2);"><img src="images/icons/tools.png" alt="" title="" />   <span >Services</span></a></li>
 										<li><a href ="#" onclick="swiperParent.swipeTo(3);"><img src="images/icons/moneyb.png" alt="" title="" />  <span >Rates</span></a></li>
 										<li><a href ="#" onclick="swiperParent.swipeTo(4);"><img src="images/icons/photos.png" alt="" title="" />  <span >Gallery</span></a></li>
-										<li><a href ="#" onclick="getPush();"><img src="images/icons/contact.png" alt="" title="" /> <span >Contact</span></a></li>
+										<li><a href ="#" onclick="swiperParent.swipeTo(5);"><img src="images/icons/contact.png" alt="" title="" /> <span >Contact</span></a></li>
 										<li><a href ="#" onclick="swiperParent.swipeTo(6);"><img src="images/icons/docs.png" alt="" title="" />    <span >Booking</span></a></li>
 										<li><a href ="#" onclick="window.open('http://www.asafilmcrew.com/','_system');"><img src="images/icons/www.png" alt="" title="" /> <span >Website</span></a></li>
 										<li><a href ="tel:323 662 9787" ><img src="images/icons/tel.png" alt="" title="" />                                                 <span >Call Us</span></a></li>
