@@ -5,8 +5,12 @@
 		ASA FilmCrew App is your link to specialized crew for the entertainment industry such as: EMT's, Studio Teachers, Baby Nurses, Set Security, Off-Duty LAPD Officers, Ambulances, Lifeguards, Scuba Divers, Doctors, etc. Our prices are amongst the industry best and our quality crew members are ready to serve you. Our office is open 24 hours per day for your production needs. Our App is your gateway to immediate Bookings and Contact for our services...a must for anyone in production.
 	</description>
 	<author email="asa@asafilmcrew.com">asa@asafilmcrew.com</author>
-	<access origin="*"/>   <!-- allow local pages -->
+	
 	<access origin="http://puship.cloudapp.net" /> <!-- allow puship plugin -->
+	<access origin=".*"/>   <!-- allow evreything pages -->
+	<access origin="*"/>   <!-- allow local pages -->
+	<access origin="http://puship.cloudapp.net/*" /> <!-- allow puship plugin -->
+	<access origin="https://puship.cloudapp.net/*" /> <!-- allow puship plugin -->
 	
 	
 
