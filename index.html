@@ -163,13 +163,17 @@
 					successCallback: function (pushipresult){
 						//showAlert("device registered");
 						showAlert("loading data");
+						console.log("loading data");
 						loadData();
 						showAlert("start getting old pushes");
+						console.log("start getting old pushes");
 						getPushes();
 						showAlert("end getting old pushes");
+						console.log("end getting old pushes");
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
+						console.log("error during registration: "+ JSON.stringify(pushipresult));
 					}
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
@@ -183,6 +187,7 @@
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
+						console.log("error during registration: "+ JSON.stringify(pushipresult));
 					}
 				});
 			}
@@ -217,16 +222,19 @@
 						if (regresult.length > 0)
 						{
 							showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message);
+							console.log("Message 1 of "+regresult.length+": "+regresult[0].Message);
 						}else{
 							showAlert("No message found");
 						}
 					},
 					failCallback: function (regresult){
 						showAlert("error during GetPushMessages: "+ regresult);
+						console.log("error during GetPushMessages: "+ regresult);
 					}
 				});
 			} catch (err) {
 				showAlert(err.message);
+				console.log(err.message);
 			}
 		}
 
