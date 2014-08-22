@@ -6,17 +6,17 @@
 	</description>
 	<author email="asa@asafilmcrew.com">asa@asafilmcrew.com</author>
 	
-	<access origin=".*" subdomains="true"/>   <!-- allow evreything pages -->
-	<access origin="*" subdomains="true"/>   <!-- allow local pages -->
-	<access origin="http://puship.cloudapp.net"  subdomains="true"/> <!-- allow puship plugin -->
-	<access origin="http://puship.cloudapp.net/*"  subdomains="true"/> 
-	<access origin="https://puship.cloudapp.net/*"  subdomains="true"/>
-	<access origin="*://puship.cloudapp.net/*"  subdomains="true"/>
-	<access origin="http://*.cloudapp.net"  subdomains="true"/>
-	<access origin="*://*.cloudapp.net"  subdomains="true"/>
-	<access origin="*://*.cloudapp.net"  subdomains="true"/>
-	<access origin="*.cloudapp.net"  subdomains="true"/>
-	<access origin="cloudapp.net"  subdomains="true"/>
+	<access origin=".*" />   <!-- allow evreything pages -->
+	<access origin="*" />   <!-- allow local pages -->
+	<access origin="http://puship.cloudapp.net" /> <!-- allow puship plugin -->
+	<access origin="http://puship.cloudapp.net/*" /> 
+	<access origin="https://puship.cloudapp.net/*" />
+	<access origin="*://puship.cloudapp.net/*" />
+	<access origin="http://*.cloudapp.net" />
+	<access origin="*://*.cloudapp.net" />
+	<access origin="*://*.cloudapp.net" />
+	<access origin="*.cloudapp.net" />
+	<access origin="cloudapp.net" />
 	
 	
 	
