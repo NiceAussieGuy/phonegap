@@ -96,6 +96,7 @@
 
 		function onLoad() {
 			//showAlert("start onload");
+			console.log("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			//showAlert("end onload");
@@ -116,6 +117,7 @@
 		});
 		
 		function onDeviceReady() {
+			console.log("in onDeviceReady");
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
@@ -125,7 +127,9 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 			
+			console.log("start puship register");
 			RegisterPuship();
+			console.log("end puship register");
 			//loadData();
 		}
 
@@ -134,6 +138,7 @@
 		}
 
 		function LoadMenuPage(){
+			console.log("in LoadMenuPage");
 			var uData;
 
 			try {
@@ -152,6 +157,7 @@
 
 		function RegisterPuship()
 		{
+			console.log("in RegisterPuship");
 			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
 
 			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
@@ -162,13 +168,13 @@
 				{
 					successCallback: function (pushipresult){
 						//showAlert("device registered");
-						showAlert("loading data");
+						//showAlert("loading data");
 						console.log("loading data");
 						loadData();
-						showAlert("start getting old pushes");
+						//showAlert("start getting old pushes");
 						console.log("start getting old pushes");
 						getPushes();
-						showAlert("end getting old pushes");
+						//showAlert("end getting old pushes");
 						console.log("end getting old pushes");
 					},
 					failCallback: function (pushipresult){
@@ -210,6 +216,7 @@
 		}
 		
 		function getPushes(){
+			console.log("in getPushes");
 			try {
 				Puship.Common.GetPushMessages({
 					//limit: 10, //max limit is 50 default is 20
@@ -218,7 +225,7 @@
 					//tag : "Libra",
 					successCallback: function (regresult){
 						console.log("GetPushMessages done");
-						showAlert("GetPushMessages done");
+						//showAlert("GetPushMessages done");
 						if (regresult.length > 0)
 						{
 							showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message);
