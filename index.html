@@ -95,7 +95,7 @@
 		}
 
 		function onLoad() {
-			//showAlert("start onload");
+			showAlert("start onload");
 			console.log("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
@@ -118,6 +118,7 @@
 		
 		function onDeviceReady() {
 			console.log("in onDeviceReady");
+			showAlert("in onDeviceReady");
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
