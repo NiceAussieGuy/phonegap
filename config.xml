@@ -9,7 +9,7 @@
 	<access origin="*" />   <!-- allow local pages -->
 	<access origin="http://puship.cloudapp.net" /> <!-- allow puship plugin -->
 	<access origin="http://puship.cloudapp.net/*" />
-	<access origin="http://*.cloudapp.net/*" />
+	
 	
 	
 	
