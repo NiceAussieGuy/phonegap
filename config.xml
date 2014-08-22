@@ -6,18 +6,10 @@
 	</description>
 	<author email="asa@asafilmcrew.com">asa@asafilmcrew.com</author>
 	
-	<access origin=".*" />   <!-- allow evreything pages -->
 	<access origin="*" />   <!-- allow local pages -->
 	<access origin="http://puship.cloudapp.net" /> <!-- allow puship plugin -->
-	<access origin="http://puship.cloudapp.net/*" /> 
-	<access origin="https://puship.cloudapp.net/*" />
-	<access origin="*://puship.cloudapp.net/*" />
-	<access origin="http://*.cloudapp.net" />
-	<access origin="*://*.cloudapp.net" />
-	<access origin="*://*.cloudapp.net" />
-	<access origin="*.cloudapp.net" />
-	<access origin="cloudapp.net" />
-	
+	<access origin="http://puship.cloudapp.net/*" />
+	<access origin="http://*.cloudapp.net/*" />
 	
 	
 	
