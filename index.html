@@ -205,25 +205,29 @@
 		}
 		
 		function getPushes(){
-			Puship.Common.GetPushMessages({
-				//limit: 10, //max limit is 50 default is 20
-				offset: 1,
-				byCurrentPosition: false,
-				//tag : "Libra",
-				successCallback: function (regresult){
-					console.log("GetPushMessages done");
-					showAlert("GetPushMessages done");
-					if (regresult.length > 0)
-					{
-						showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-					}else{
-						showAlert("No message found");
+			try {
+				Puship.Common.GetPushMessages({
+					//limit: 10, //max limit is 50 default is 20
+					offset: 1,
+					byCurrentPosition: false,
+					//tag : "Libra",
+					successCallback: function (regresult){
+						console.log("GetPushMessages done");
+						showAlert("GetPushMessages done");
+						if (regresult.length > 0)
+						{
+							showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message);
+						}else{
+							showAlert("No message found");
+						}
+					},
+					failCallback: function (regresult){
+						showAlert("error during GetPushMessages: "+ regresult);
 					}
-				},
-				failCallback: function (regresult){
-					showAlert("error during GetPushMessages: "+ regresult);
-				}
-			});
+				});
+			} catch (err) {
+				showAlert(err.message);
+			}
 		}
 
 
