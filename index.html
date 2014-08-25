@@ -95,7 +95,7 @@
 		}
 
 		function onLoad() {
-			showAlert("start onload");
+			//showAlert("start onload");
 			console.log("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
@@ -118,7 +118,7 @@
 		
 		function onDeviceReady() {
 			console.log("in onDeviceReady");
-			showAlert("in onDeviceReady");
+			//showAlert("in onDeviceReady");
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
@@ -128,9 +128,13 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 			
-			console.log("start puship register");
-			RegisterPuship();
-			console.log("end puship register");
+			console.log("start RegisterPuship");
+			try {
+				RegisterPuship();
+			} catch (e) {
+				console.log("Error while registering puship: "+e.message);
+			}
+			console.log("end RegisterPuship");
 			//loadData();
 		}
 
@@ -163,20 +167,20 @@
 
 			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
 			if ( device.platform == 'android' || device.platform == 'Android') {
-				//showAlert("android");
+				console.log("registering puship android");
 				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
 				Puship.GCM.Register(GCMCode,
 				{
 					successCallback: function (pushipresult){
-						//showAlert("device registered");
+						console.log("device registered");
 						//showAlert("loading data");
 						console.log("loading data");
 						loadData();
 						//showAlert("start getting old pushes");
-						console.log("start getting old pushes");
+						console.log("start getPushes");
 						getPushes();
 						//showAlert("end getting old pushes");
-						console.log("end getting old pushes");
+						console.log("end getPushes");
 					},
 					failCallback: function (pushipresult){
 						showAlert("error during registration: "+ JSON.stringify(pushipresult));
@@ -185,7 +189,7 @@
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
 			} else { //"iOS"
-				//showAlert("iphone");
+				console.log("registering puship iphone");
 				Puship.APNS.Register(
 				{
 					successCallback: function (pushipresult){
@@ -198,10 +202,7 @@
 					}
 				});
 			}
-			/* else {
-				showAlert("error");
-				Console.log("Not supported platform");
-			}*/
+			
 			Puship.Common.OnPushReceived(function(event) {
 				console.log('push received');
 				
