@@ -202,7 +202,7 @@
 					}
 				});
 			}
-			
+
 			Puship.Common.OnPushReceived(function(event) {
 				console.log('push received');
 				
@@ -221,7 +221,7 @@
 			console.log("in getPushes");
 			try {
 				Puship.Common.GetPushMessages({
-					//limit: 10, //max limit is 50 default is 20
+					limit: 1, //max limit is 50 default is 20
 					offset: 1,
 					byCurrentPosition: false,
 					//tag : "Libra",
