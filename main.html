@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="css/pickadate/classic.time.css" />
 
 </head>
-<body>
+<body onload="onLoad()">
 	<div id="header">
 		<div class="gohome radius20"><a href="#"><img src="images/icons/home.png" alt="" title="" /></a></div>
 		<div class="gomenu radius20"><a href="#" onclick="swiperParent.swipeTo(6);"><img src="images/icons/contact.png" alt="" title="" /></a></div>
@@ -748,6 +748,8 @@
 											}
 										}
 
+
+
 										function sendMail() {
 											if ($("#contactName").val() == ""
 												|| $("#contactEmail").val() == ""
@@ -1216,97 +1218,26 @@
 	<script type="text/javascript" src="js/pickadate/legacy.js"></script>
 	
 	<script type="text/javascript">
-		document.addEventListener("deviceready", onDeviceReady, false);
-
-		function onDeviceReady() {
+		function onLoad() {
+			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
-			
-			//register push
-			try {
-				pushNotification = window.plugins.pushNotification;
-				if ( device.platform == 'android' || device.platform == 'Android') {
-					pushNotification.register(successHandler, errorHandler, {
-						"senderID":"659859389520",
-						"ecb":"onNotificationGCM"
-					});
-				} else {
-					pushNotification.register(tokenHandler, errorHandler, {
-						"badge":"true",
-						"sound":"true",
-						"alert":"true",
-						"ecb":"onNotificationAPN"
-					});
+
+			Puship.Common.OnPushReceived(function(event) {
+				debugLog('push received');
+				
+				try
+				{
+					showAlert(event.notification.Alert,"Notification");
 				}
-			} catch (ex) {
-				showAlert(ex, 'push error');
-			}		
-			
+				catch(err)
+				{
+					console.warn("Cannot display alert in background");
+				}
+			});
 		}
 		
-		function successHandler(result) {			
-			debugLog('Success: Callback Success! Result = '+result);
-		}
+		function onDeviceReady() {
 
-		function errorHandler(error) {
-			//showAlert(error, "Push Notification Error");
-			debugLog("Push Notification Error");
-		}
-
-		function tokenHandler (result) {
-			// Your iOS push server needs to know the token before it can push to this device
-			// here is where you might want to send it the token for later use.
-			//showAlert('device token = ' + result, 'Token');
-			debugLog('device token = ' + result);
-		}
-
-		function onNotificationGCM(e) {
-		//this.onNotificationGCM = function(e){
-		
-			debugLog("on notification ");
-			switch( e.event )
-			{
-				case 'registered':
-					if ( e.regid.length > 0 )
-					{						
-						//showAlert('registration id = '+e.regid);
-						debugLog("Regid " + e.regid);
-					}
-					break;
-
-				case 'message':
-					// this is the actual push notification. its format depends on the data     model from the push server
-					showAlert('message = '+e.message+e.payload+' msgcnt = '+e.msgcnt, "Message");
-					debugLog('message = '+e.message+' msgcnt = '+e.msgcnt);
-					break;
-
-				case 'error':
-					showAlert('GCM error = '+e.msg, "Error");
-					debugLog('GCM error = '+e.msg);
-					break;
-
-				default:
-					showAlert('An unknown GCM event has occurred', "Unknown Event");
-					debugLog('An unknown GCM event has occurred');
-					break;
-			}
-		}
-
-		function onNotificationAPN (event) {
-			if ( event.alert )
-			{
-				navigator.notification.alert(event.alert);
-			}
-
-			if ( event.sound )
-			{
-				var snd = new Media(event.sound);
-				snd.play();
-			}
-
-			if ( event.badge )
-			{
-				pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-			}
 		}
 		
 		function onBackKeyDown(){ 
