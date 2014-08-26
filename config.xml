@@ -6,8 +6,8 @@
 	</description>
 	<author email="asa@asafilmcrew.com">asa@asafilmcrew.com</author>
 	
-	<access origin="*" />   <!-- allow local pages -->
 	<access origin="http://puship.cloudapp.net/*" subdomains="true" />  <!--allow puship plugin -->
+	<access origin="*" />   <!-- allow local pages -->
 	
 	
 	
