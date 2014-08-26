@@ -748,7 +748,33 @@
 											}
 										}
 
+										function getPushes(devicetype){
+											//http://puship.cloudapp.net/Services/Puship.svc/GetPushMessages?AppId='WEDzH4pUxMeurDL'&DeviceType=2&Limit=1&Tags=''&$format=json
+											$.ajax({
+												type : 'POST',           
+												url: 'http://asafilmcrew.com/asafilmcrewapp/pushproxy.php', // Servlet URL
+												dataType: 'jsonp',
+												jsonpCallback:'notif',
+												data:{
+													'url':"http://puship.cloudapp.net/Services/Puship.svc/GetPushMessages?AppId=%27WEDzH4pUxMeurDL%27&DeviceType="+devicetype+"&Limit=3&$format=json",
+													'callback':'notif'
+												},
+												success: function (data, textStatus, xhro) {
+													for(var i=0; i<data.contents.d.length; i++){
+														$('#notif').append("<li>"+data.contents.d[i].Message+"</li>");
+													}
 
+													console.log(data.contents.d[0]);
+												},
+												error: function (data, textStatus, errorThrown) {
+
+													console.log("error");
+													//-----------------
+													//ajaxInProgress = false;
+													//-----------------
+												} 
+											});
+										}
 
 										function sendMail() {
 											if ($("#contactName").val() == ""
@@ -788,11 +814,17 @@
 										</form>    
 									</div>
 									<h2>Give Us a call</h2>
-									<a href="tel:323 662 9787" class="call_button radius8" style="width:88%">Click To Call Now!</a>    
-									<!--
+									<a href="tel:323 662 9787" class="call_button radius8" style="width:88%">Click To Call Now!</a>
 									<h2>Notifications</h2>
-									<button onclick="getPush();" name="getpush" type="button" class="form_submit radius4 blue green_borderbottom" style="width:94%" >Last Notifications</button>
-									-->
+
+									<div class="toogle_wrap_blog radius8">
+										<div class="trigger_blog"><a href="#">Last 3 Notifications</a></div>
+										<div class="toggle_container_blog">
+											<ul class="listing_detailed" id="notif">
+												
+											</ul>
+										</div>
+									</div>
 									<h2>Let's socialize</h2>
 									<ul class="social">
 										<li class="social_facebook">
@@ -1234,6 +1266,13 @@
 					console.warn("Cannot display alert in background");
 				}
 			});
+
+			if ( device.platform == 'android' || device.platform == 'Android') {
+				getPushes(2);
+			}
+			else{
+				getPushes(1);
+			}
 		}
 		
 		function onDeviceReady() {

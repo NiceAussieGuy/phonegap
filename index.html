@@ -181,9 +181,6 @@
 					successCallback: function (pushipresult){
 						debugLog("device registered, loading data");
 						loadData();
-						debugLog("start getPushes");
-						getPushes();
-						debugLog("end getPushes");
 					},
 					failCallback: function (pushipresult){
 						debugLog("error during registration: "+ JSON.stringify(pushipresult));
@@ -217,7 +214,7 @@
 			});
 		}
 		
-		function getPushes(){
+		function getPushesP(){
 			debugLog("in getPushes");
 			try {
 				Puship.Common.GetPushMessages({
@@ -242,8 +239,6 @@
 				debugLog(err.message);
 			}
 		}
-
-
 	</script>
 	<!--<script type="text/javascript" src="PushNotification.js"></script>-->
 
