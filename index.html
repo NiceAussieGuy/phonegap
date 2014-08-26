@@ -94,12 +94,19 @@
 			}
 		}
 
+		function debugLog(message, msgbox){
+			if(arguments.length == 2 && msgbox == false){
+				console.log(message);
+			} else {
+				console.log(message);
+				showAlert(message);
+			}
+		}
+
 		function onLoad() {
-			//showAlert("start onload");
-			console.log("start onload");
+			debugLog("start onload");
 			document.addEventListener("deviceready", onDeviceReady, false);
 			document.addEventListener("backbutton", onBackKeyDown, false);
-			//showAlert("end onload");
 		}
 		
 		$(document).ready(function () {
@@ -117,8 +124,8 @@
 		});
 		
 		function onDeviceReady() {
-			console.log("in onDeviceReady");
-			//showAlert("in onDeviceReady");
+			debugLog("in onDeviceReady");
+
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			//hide splash
@@ -128,13 +135,13 @@
 			}, 3000);			
 			navigator.splashscreen.hide();
 			
-			console.log("start RegisterPuship");
+			debugLog("start RegisterPuship");
 			try {
 				RegisterPuship();
 			} catch (e) {
-				console.log("Error while registering puship: "+e.message);
+				debugLog("Error while registering puship: "+e.message);
 			}
-			console.log("end RegisterPuship");
+			debugLog("end RegisterPuship");
 			//loadData();
 		}
 
@@ -143,7 +150,7 @@
 		}
 
 		function LoadMenuPage(){
-			console.log("in LoadMenuPage");
+			debugLog("in LoadMenuPage");
 			var uData;
 
 			try {
@@ -162,49 +169,42 @@
 
 		function RegisterPuship()
 		{
-			console.log("in RegisterPuship");
+			debugLog("in RegisterPuship");
 			Puship.PushipAppId = "WEDzH4pUxMeurDL"; // I.E.: puship_id = "h1mCVGaP9dtGnwG"
 
 			//if (Puship.Common.GetCurrentOs()==Puship.OS.ANDROID){
 			if ( device.platform == 'android' || device.platform == 'Android') {
-				console.log("registering puship android");
+				debugLog("registering puship android");
 				var GCMCode = "659859389520"; // This is the senderID provided by Google. I.E.: "28654934133"
 				Puship.GCM.Register(GCMCode,
 				{
 					successCallback: function (pushipresult){
-						console.log("device registered");
-						//showAlert("loading data");
-						console.log("loading data");
+						debugLog("device registered, loading data");
 						loadData();
-						//showAlert("start getting old pushes");
-						console.log("start getPushes");
+						debugLog("start getPushes");
 						getPushes();
-						//showAlert("end getting old pushes");
-						console.log("end getPushes");
+						debugLog("end getPushes");
 					},
 					failCallback: function (pushipresult){
-						showAlert("error during registration: "+ JSON.stringify(pushipresult));
-						console.log("error during registration: "+ JSON.stringify(pushipresult));
+						debugLog("error during registration: "+ JSON.stringify(pushipresult));
 					}
 				});
 			//} else if (Puship.Common.GetCurrentOs()==Puship.OS.IOS){
 			} else { //"iOS"
-				console.log("registering puship iphone");
+				debugLog("registering puship iphone");
 				Puship.APNS.Register(
 				{
 					successCallback: function (pushipresult){
-						//showAlert("device registered");
 						loadData();
 					},
 					failCallback: function (pushipresult){
-						showAlert("error during registration: "+ JSON.stringify(pushipresult));
-						console.log("error during registration: "+ JSON.stringify(pushipresult));
+						debugLog("error during registration: "+ JSON.stringify(pushipresult));
 					}
 				});
 			}
 
 			Puship.Common.OnPushReceived(function(event) {
-				console.log('push received');
+				debugLog('push received');
 				
 				try
 				{
@@ -218,7 +218,7 @@
 		}
 		
 		function getPushes(){
-			console.log("in getPushes");
+			debugLog("in getPushes");
 			try {
 				Puship.Common.GetPushMessages({
 					limit: 1, //max limit is 50 default is 20
@@ -226,24 +226,20 @@
 					byCurrentPosition: false,
 					//tag : "Libra",
 					successCallback: function (regresult){
-						console.log("GetPushMessages done");
-						//showAlert("GetPushMessages done");
+						debugLog("GetPushMessages done");
 						if (regresult.length > 0)
 						{
 							showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message);
-							console.log("Message 1 of "+regresult.length+": "+regresult[0].Message);
 						}else{
 							showAlert("No message found");
 						}
 					},
 					failCallback: function (regresult){
-						showAlert("error during GetPushMessages: "+ regresult);
-						console.log("error during GetPushMessages: "+ regresult);
+						debugLog("error during GetPushMessages: "+ regresult);
 					}
 				});
 			} catch (err) {
-				showAlert(err.message);
-				console.log(err.message);
+				debugLog(err.message);
 			}
 		}
 

@@ -731,14 +731,23 @@
 									</h2>
 									<script type="text/javascript" src="js/PushipNotification.js"></script>
 									<script type="text/javascript">
-											function showAlert(message, title) {
-												if (navigator.notification) {
-													navigator.notification.alert(message, null, title, 'OK');
-												} else {
-													alert(title ? (title + ": " + message) : message);
-												}
+										function showAlert(message, title) {
+											if (navigator.notification) {
+												navigator.notification.alert(message, null, title?title:'Alert', 'OK');
+											} else {
+												alert(title ? (title + ": " + message) : message);
 											}
-											
+										}
+
+										function debugLog(message, msgbox){
+											if(arguments.length == 2 && msgbox == false){
+												console.log(message);
+											} else {
+												console.log(message);
+												showAlert(message);
+											}
+										}
+
 										function sendMail() {
 											if ($("#contactName").val() == ""
 												|| $("#contactEmail").val() == ""
@@ -757,27 +766,6 @@
 											;
 											document.getElementById("contact-us").reset();
 											window.location.href = link;
-										}
-										
-										function getPush(){
-											Puship.Common.GetPushMessages({
-												//limit: 10, //max limit is 50 default is 20
-												//offset: 100,
-												successCallback: function (regresult){
-													console.log("GetPushMessages done");
-														
-													if (regresult.length>0)
-													{
-														showAlert("Message 1 of "+regresult.length+": "+regresult[0].Message, "Notification");
-													}else{
-														showAlert("No message found");
-													}
-												},
-												failCallback: function (regresult){
-													console.log("error during GetPushMessages: "+ regresult);
-													showAlert("error during GetPushMessages: "+ regresult);
-												}
-											});
 										}
 										
 									</script>
@@ -1256,49 +1244,49 @@
 		}
 		
 		function successHandler(result) {			
-			console.log('Success: Callback Success! Result = '+result);
+			debugLog('Success: Callback Success! Result = '+result);
 		}
 
 		function errorHandler(error) {
 			//showAlert(error, "Push Notification Error");
-			console.log("Push Notification Error");
+			debugLog("Push Notification Error");
 		}
 
 		function tokenHandler (result) {
 			// Your iOS push server needs to know the token before it can push to this device
 			// here is where you might want to send it the token for later use.
 			//showAlert('device token = ' + result, 'Token');
-			console.log('device token = ' + result);
+			debugLog('device token = ' + result);
 		}
 
 		function onNotificationGCM(e) {
 		//this.onNotificationGCM = function(e){
 		
-			console.log("on notification ");
+			debugLog("on notification ");
 			switch( e.event )
 			{
 				case 'registered':
 					if ( e.regid.length > 0 )
 					{						
 						//showAlert('registration id = '+e.regid);
-						console.log("Regid " + e.regid);
+						debugLog("Regid " + e.regid);
 					}
 					break;
 
 				case 'message':
 					// this is the actual push notification. its format depends on the data     model from the push server
 					showAlert('message = '+e.message+e.payload+' msgcnt = '+e.msgcnt, "Message");
-					console.log('message = '+e.message+' msgcnt = '+e.msgcnt);
+					debugLog('message = '+e.message+' msgcnt = '+e.msgcnt);
 					break;
 
 				case 'error':
 					showAlert('GCM error = '+e.msg, "Error");
-					console.log('GCM error = '+e.msg);
+					debugLog('GCM error = '+e.msg);
 					break;
 
 				default:
 					showAlert('An unknown GCM event has occurred', "Unknown Event");
-					console.log('An unknown GCM event has occurred');
+					debugLog('An unknown GCM event has occurred');
 					break;
 			}
 		}
