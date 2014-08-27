@@ -1277,7 +1277,12 @@
 		}
 
 		$("#tnotif").on("click", function (){
-			getPushes();
+			if ( device.platform == 'android' || device.platform == 'Android') {
+				getPushes(2);
+			}
+			else{
+				getPushes(1);
+			}
 		});
 		
 		function onDeviceReady() {
