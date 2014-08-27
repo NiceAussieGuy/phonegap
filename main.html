@@ -760,6 +760,7 @@
 													'callback':'notif'
 												},
 												success: function (data, textStatus, xhro) {
+													$('#notif').empty();
 													for(var i=0; i<data.contents.d.length; i++){
 														$('#notif').append("<li>"+data.contents.d[i].Message+"</li>");
 													}
@@ -818,7 +819,7 @@
 									<h2>Notifications</h2>
 
 									<div class="toogle_wrap_blog radius8">
-										<div class="trigger_blog"><a href="#">Last 3 Notifications</a></div>
+										<div class="trigger_blog" id="tnotif"><a href="#">Last 3 Notifications</a></div>
 										<div class="toggle_container_blog">
 											<ul class="listing_detailed" id="notif">
 												
@@ -1274,6 +1275,10 @@
 				getPushes(1);
 			}
 		}
+
+		$("#tnotif").on("click", function (){
+			getPushes();
+		});
 		
 		function onDeviceReady() {
 

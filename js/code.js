@@ -184,7 +184,7 @@ $(".trigger").click(function(){
 	$(this).toggleClass("active").next().toggle();
 	return false;
 });
-$(".trigger_blog").click(function(){
+$(".trigger_blog").on("click",function(){
 	var visible = $(this).toggleClass("activeb").next().is(":visible");
 	
 	$(".toggle_container_blog").hide();
