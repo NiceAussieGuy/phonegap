@@ -828,10 +828,10 @@
 									</div>
 									<h2>Previous Bookings Requests</h2>
 									<div class="toogle_wrap_blog radius8">
-										<div class="trigger_blog" id="tnotif"><a href="#" onclick="$('#rrr').load('http://asafilmcrew.com/asafilmcrewapp/getBookings.php?jsonp_callback=asdfasdf&user_email=demo@example.com&user_password=123456')">load</a></div>
+										<div class="trigger_blog" id="tnotif"><a href="#" onclick="LoadBookings()">load</a></div>
 										<div class="toggle_container_blog">
-											<ul class="listing_detailed" id="notif">				
-												<li id="rrr"></li>
+											<ul class="listing_detailed" id="bookings">				
+												
 											</ul>
 										</div>
 									</div>
@@ -1472,8 +1472,37 @@
 
 	<script type="text/javascript">
 		function LoadBookings(){
+			var ud = LoadUserData();
+			var bookings;
+			$.ajax({
+				type : 'POST',           
+				url: 'http://asafilmcrew.com/asafilmcrewapp/getBookings.php', // Servlet URL
+				dataType: 'jsonp',
+				jsonp: 'jsonp_callback',
+				data: {
+					'user_email': ud.email,
+					'user_password':ud.password
+				},
+				success: function (data, status)
+				{	                
+					bookings = data;					
+					//-----------------
+					ajaxInProgress = false;	                
+				},
+				error: function (data, textStatus, errorThrown)
+				{                    
+					showAlert("Connection Error");
+
+					//-----------------
+					ajaxInProgress = false;
+				} 
+			});
+			for (var i = bookings.length - 1; i >= 0; i--) {
+				$("#bookings").append("<li>"+bookings[0]+"</li>");
+			};
 			
 		}
+
 		function LoadUserData(){
 			var ud;
 			try {
