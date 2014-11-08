@@ -1295,6 +1295,7 @@
 		});
 		$("#tbookings").on("click", function (){
 			LoadBookings();
+			swiperNested5.reInit();
 		});
 		
 		function onDeviceReady() {
@@ -1494,7 +1495,7 @@
 						$("#bookings").append("<li>"+data[i][0]+"<br/>"+data[i][1]+"</li>");
 					};
 					//-----------------
-					swiperNested5.reInit();
+					
 					ajaxInProgress = false;
 				},
 				error: function (data, textStatus, errorThrown)
