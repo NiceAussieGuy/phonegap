@@ -1497,8 +1497,8 @@
 					ajaxInProgress = false;
 				} 
 			});
-			for (var i = bookings.length - 1; i >= 0; i--) {
-				$("#bookings").append("<li>"+bookings[0]+"</li>");
+			for (var i = 0; i <= bookings.length-1; i++) {
+				$("#bookings").append("<li>"+bookings[i][0]+"<br/>"+bookings[i][1]+"</li>");
 			};
 			
 		}
