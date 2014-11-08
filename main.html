@@ -826,9 +826,9 @@
 											</ul>
 										</div>
 									</div>
-									<h2>Previous Bookings Requests</h2>
+									<h2>Previous Bookings</h2>
 									<div class="toogle_wrap_blog radius8">
-										<div class="trigger_blog" id="tnotif"><a href="#" onclick="LoadBookings()">load</a></div>
+										<div class="trigger_blog" id="tbookings"><a href="#">Bookings</a></div>
 										<div class="toggle_container_blog">
 											<ul class="listing_detailed" id="bookings">				
 												
@@ -1292,6 +1292,9 @@
 			else{
 				getPushes(1);
 			}
+		});
+		$("#tbookings").on("click", function (){
+			LoadBookings();
 		});
 		
 		function onDeviceReady() {
