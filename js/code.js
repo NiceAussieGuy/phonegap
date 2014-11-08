@@ -195,8 +195,10 @@ $(".trigger_blog").on("click",function(){
 	} else {
 		$(this).toggleClass("activeb").next().hide();
 	}
-	swiperNested6.reInit();
+	
 	swiperNested5.reInit();
+	swiperNested6.reInit();
+	
 	return false;
 });
 $(".post_more").click(function(){
