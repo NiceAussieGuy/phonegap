@@ -196,7 +196,7 @@ $(".trigger_blog").on("click",function(){
 		$(this).toggleClass("activeb").next().hide();
 	}
 	
-	swiperNested5.reInit();
+	//swiperNested5.reInit();
 	swiperNested6.reInit();
 	
 	return false;
