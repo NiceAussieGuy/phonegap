@@ -1485,9 +1485,13 @@
 				},
 				success: function (data, status)
 				{	                
-					bookings = data;					
+					//bookings = data;
+					$("#bookings").empty();
+					for (var i = 0; i <= data.length-1; i++) {
+						$("#bookings").append("<li>"+data[i][0]+"<br/>"+data[i][1]+"</li>");
+					};
 					//-----------------
-					ajaxInProgress = false;	                
+					ajaxInProgress = false;
 				},
 				error: function (data, textStatus, errorThrown)
 				{                    
@@ -1496,12 +1500,7 @@
 					//-----------------
 					ajaxInProgress = false;
 				} 
-			});
-			$("#bookings").empty();
-			for (var i = 0; i <= bookings.length-1; i++) {
-				$("#bookings").append("<li>"+bookings[i][0]+"<br/>"+bookings[i][1]+"</li>");
-			};
-			
+			});			
 		}
 
 		function LoadUserData(){
