@@ -826,6 +826,15 @@
 											</ul>
 										</div>
 									</div>
+									<h2>Previous Bookings Requests</h2>
+									<div class="toogle_wrap_blog radius8">
+										<div class="trigger_blog" id="tnotif"><a href="#" onclick="$('#rrr').load('http://asafilmcrew.com/asafilmcrewapp/getBookings.php?jsonp_callback=asdfasdf&user_email=demo@example.com&user_password=123456')">load</a></div>
+										<div class="toggle_container_blog">
+											<ul class="listing_detailed" id="notif">				
+												<li id="rrr"></li>
+											</ul>
+										</div>
+									</div>
 									<h2>Let's socialize</h2>
 									<ul class="social">
 										<li class="social_facebook">
@@ -1462,6 +1471,23 @@
 	</script>
 
 	<script type="text/javascript">
+		function LoadBookings(){
+			
+		}
+		function LoadUserData(){
+			var ud;
+			try {
+				ud = JSON.parse(localStorage.getItem("userData"));
+			} catch (e) {
+				ud = null;
+				window.location.href = 'login.html';
+			}
+			if (ud != null){
+				return ud;
+			} else {
+				return;
+			}
+		}
 		function logout() {
 			window.localStorage.setItem("userData", "");
 
