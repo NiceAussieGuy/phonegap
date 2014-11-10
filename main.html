@@ -1492,7 +1492,7 @@
 					//bookings = data;
 					$("#bookings").empty();
 					for (var i = 0; i <= data.length-1; i++) {
-						$("#bookings").append("<li><div onClick='$(this).next().toggle();'>"+data[i][1]+"</div><div style='display: none;'>"+data[i][0]+"</div></li>");
+						$("#bookings").append("<li><div onClick='$(this).next().toggle();swiperNested9.reInit();'>"+data[i][1]+"</div><div style='display: none;'>"+data[i][0]+"</div></li>");
 					};
 					swiperNested9.reInit();
 					//-----------------
