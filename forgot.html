@@ -132,10 +132,10 @@
                 {
                     if (1 == data.flag)
                     {
-                        alert(data.response);
+                        showAlert(data.response, "Password Sent");
                         window.location.href = 'login.html';
                     } else {                    
-                        alert(data.response);
+                        showAlert(data.response, "Error");
                     }
 
                     //-----------------
@@ -144,7 +144,7 @@
                 },
                 error: function (data, textStatus, errorThrown) {
                     
-                    alert("Connection Error");
+                    showAlert("Connection Error");
                     //-----------------
                     ajaxInProgress = false;
                     //-----------------
