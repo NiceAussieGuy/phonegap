@@ -34,10 +34,10 @@
 									<div class="form">
 
 										<label style="display:inline">First Name:</label>
-										<label id="firstname" style="display:inline"></label>
+										<label id="firstname" style="display:inline">Loading ... </label>
 										<br />
 										<label style="display:inline">Last Name:</label>
-										<label id="lastname" style="display:inline"></label>
+										<label id="lastname" style="display:inline">Loading ... </label>
 										<br />
 										<!--
 										<label style="display:inline">Email:</label>
@@ -45,19 +45,19 @@
 										<br />
 											-->
 										<label style="display:inline">Telephone:</label>
-										<label id="telephone" style="display:inline"></label>
+										<label id="telephone" style="display:inline">Loading ... </label>
 										<br />
 										<label style="display:inline">Crew Position:</label>
-										<label id="crewPosition" style="display:inline"></label>
+										<label id="crewPosition" style="display:inline">Loading ... </label>
 										<br />
 										<label style="display:inline">Current Position:</label>
-										<label id="current" style="display:inline"></label>
+										<label id="current" style="display:inline">Loading ... </label>
 										<br />
 										<label style="display:inline">Production Phone:</label>
-										<label id="productionPhone" style="display:inline"></label>
+										<label id="productionPhone" style="display:inline">Loading ... </label>
 										<br />
 										<label style="display:inline">Production Name:</label>
-										<label id="productionName" style="display:inline"></label>
+										<label id="productionName" style="display:inline">Loading ... </label>
 
 
 										<br />
@@ -134,7 +134,7 @@
 				navigator.splashscreen.hide();
 			}, 3000);			
 			navigator.splashscreen.hide();
-			
+			loadData();
 			debugLog("start RegisterPuship");
 			try {
 				RegisterPuship();
@@ -322,8 +322,8 @@
 	</script>
 
 	<script type="text/javascript">
-		var ajaxInProgress;
-
+		/*var ajaxInProgress;
+		
 		function submitData()
 		{
 			//------------------------
@@ -355,7 +355,7 @@
 					//-----------------
 				} 
 			});   
-		}
+		}*/
 
 	</script>
 
